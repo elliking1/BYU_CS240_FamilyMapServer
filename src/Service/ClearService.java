@@ -4,7 +4,7 @@ package Service;
  * @author Cameron Brown
  */
 public class ClearService {
-    
+
     public ClearService() {
 
     }

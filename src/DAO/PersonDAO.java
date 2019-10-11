@@ -4,6 +4,10 @@ package DAO;
  * @author Cameron Brown
  */
 public class PersonDAO {
+
+    /** Empty constructor for PersonDAO
+     *
+     * */
     public PersonDAO() {
 
     }

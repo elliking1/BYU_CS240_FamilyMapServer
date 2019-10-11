@@ -4,6 +4,10 @@ package DAO;
  * @author Cameron Brown
  */
 public class EventDAO {
+
+    /** Empty constructor for EventDAO
+     *
+     * */
     public EventDAO() {
 
     }

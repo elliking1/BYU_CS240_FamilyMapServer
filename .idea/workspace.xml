@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="110685c6-2ae1-4c9f-9bd4-aa2406b31c0f" name="Default Changelist" comment="" />
+    <list default="true" id="110685c6-2ae1-4c9f-9bd4-aa2406b31c0f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DAO/AuthTokenDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAO/AuthTokenDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DAO/DAOConnect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAO/DAOConnect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DAO/EventDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAO/EventDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DAO/PersonDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAO/PersonDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DAO/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAO/UserDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/AuthToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/AuthToken.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Event.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/ClearService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/ClearService.java" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,8 +28,13 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1RwMpRm5rZ61isrD2kBE8aesGmH" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -56,11 +74,22 @@
       <workItem from="1570573890368" duration="885000" />
       <workItem from="1570748517882" duration="3699000" />
       <workItem from="1570769080665" duration="1504000" />
-      <workItem from="1570771801547" duration="9081000" />
+      <workItem from="1570771801547" duration="11072000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
