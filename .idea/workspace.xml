@@ -5,39 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="110685c6-2ae1-4c9f-9bd4-aa2406b31c0f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DAO/AuthTokenDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAO/AuthTokenDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DAO/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAO/Database.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DAO/DatabaseException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAO/DatabaseException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DAO/EventDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAO/EventDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DAO/PersonDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAO/PersonDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DAO/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAO/UserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/AuthToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/AuthToken.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Event.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Request/LoadRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Request/LoadRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Request/LoginRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Request/LoginRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Request/RegisterRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Request/RegisterRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Result/AllEventsResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Result/AllEventsResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Result/AllPeopleResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Result/AllPeopleResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Result/ClearResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Result/ClearResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Result/EventResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Result/EventResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Result/FillResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Result/FillResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Result/LoadResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Result/LoadResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Result/LoginResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Result/LoginResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Result/PersonResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Result/PersonResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Result/RegisterResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Result/RegisterResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/AllEventsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/AllEventsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/AllPeopleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/AllPeopleService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/ClearService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/ClearService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/EventService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/EventService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/FillService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/FillService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/LoadService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/LoadService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/LoginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/LoginService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/PersonService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/PersonService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/RegisterService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/RegisterService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SQLStatements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/dbschema.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -56,7 +24,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1RwMpRm5rZ61isrD2kBE8aesGmH" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -100,7 +70,7 @@
       <workItem from="1570748517882" duration="3699000" />
       <workItem from="1570769080665" duration="1504000" />
       <workItem from="1570771801547" duration="11181000" />
-      <workItem from="1570809359450" duration="10154000" />
+      <workItem from="1570809359450" duration="10428000" />
     </task>
     <servers />
   </component>
@@ -119,5 +89,8 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>
