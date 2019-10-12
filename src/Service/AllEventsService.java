@@ -15,8 +15,10 @@ public class AllEventsService {
 
     }
 
-    /** Returns All Events
+    /** Get All Events tied to current user
      *
+     * @return Returns ALL events for ALL family members of the current user
+     * @param userName UserName of user whose events these are
      * */
     public AllEventsResult getAllEvents(String userName) {
 

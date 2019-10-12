@@ -27,6 +27,9 @@ public class LoginResult {
 
     /** Constructor for LoginResult Successes
      *
+     * @param authToken AuthToken assigned to the user
+     * @param personID PersonID of person assigned to AuthToken
+     * @param userName UserName of user assigned to AuthToken
      * */
     public LoginResult(String authToken, String userName, String personID) {
         this.authToken = authToken;
@@ -36,6 +39,7 @@ public class LoginResult {
 
     /** Constructor for LoginResult Failures
      *
+     * @param message Error message
      * */
     public LoginResult(String message) {
         this.message = message;

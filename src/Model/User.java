@@ -34,6 +34,13 @@ public class User {
 
     /** Non-empty constructor for User
      *
+     * @param userName UserName of user
+     * @param password Password of user
+     * @param email Email of user
+     * @param firstName First name of user
+     * @param lastName Last name of user
+     * @param gender Gender of user
+     * @param personID PersonID of user
      * */
     public User(String userName, String password, String email, String firstName, String lastName, String gender, String personID) {
         this.userName = userName;

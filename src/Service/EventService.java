@@ -11,8 +11,10 @@ public class EventService {
 
     }
 
-    /** Returns specified event
+    /** Find specified event
      *
+     * @return Returns specified event
+     * @param eventID The unique ID of the event to be returned
      * */
     public EventResult getEvent(String eventID) {
 

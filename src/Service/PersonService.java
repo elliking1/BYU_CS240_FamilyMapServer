@@ -14,8 +14,11 @@ public class PersonService {
 
     }
 
-    /** Returns specified event
+    /** Finds person object
      *
+     * @return Returns person object with specified personID
+     *
+     * @param personID The PersonID of the person being retrieved
      * */
     public PersonResult getPerson(String personID) {
 

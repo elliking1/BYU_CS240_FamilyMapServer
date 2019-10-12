@@ -17,6 +17,7 @@ public class EventDAO {
 
     /** This method adds a new event to the database
      *
+     * @param newEvent The event to be added
      * */
     public void addEvent(Event newEvent) {
 
@@ -24,6 +25,7 @@ public class EventDAO {
 
     /** This method removes an event from the database
      *
+     * @param oldEvent The event to be removed
      * */
     public void deleteEvent(Event oldEvent){
 
@@ -31,6 +33,7 @@ public class EventDAO {
 
     /** This method tries to find an event in the database
      *
+     * @param myEvent The event queried for
      * */
     public void query(Event myEvent) {
 

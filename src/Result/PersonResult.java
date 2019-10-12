@@ -25,7 +25,7 @@ public class PersonResult {
     /** MotherID */
     private String motherID;
 
-    /** SpouseID */
+    /** SpouseID, Could be Null */
     private String spouseID;
 
     /** Error Message */
@@ -39,7 +39,14 @@ public class PersonResult {
     }
     /** Constructor for PersonResult Successes
      *
-     *
+     * @param associatedUserName UserName of Person that needs to be returned
+     * @param personID PersonID of Person that needs to be returned
+     * @param firstName First name of Person that needs to be returned
+     * @param lastName Last name of Person that needs to be returned
+     * @param gender Gender of of Person that needs to be returned
+     * @param fatherID PersonID of this person's father
+     * @param motherID PersonID of this person's mother
+     * @param spouseID PersonID of this person's spouse
      * */
     public PersonResult(String associatedUserName, String personID, String firstName, String lastName, String gender, String fatherID, String motherID, String spouseID) {
         this.associatedUserName = associatedUserName;
@@ -54,7 +61,7 @@ public class PersonResult {
 
     /** Constructor for PersonResult Failures
      *
-     *
+     * @param message Error message
      * */
     public PersonResult(String message) {
         this.message = message;

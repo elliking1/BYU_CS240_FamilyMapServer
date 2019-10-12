@@ -20,6 +20,8 @@ public class AuthToken {
 
     /** Non-empty constructor for AuthToken
      *
+     * @param token AuthToken object
+     * @param userName UserName of User Associated with AuthToken
      * */
     public AuthToken(String token, String userName) {
         this.token = token;

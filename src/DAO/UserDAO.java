@@ -17,6 +17,7 @@ public class UserDAO {
 
     /** This method adds a new user to the database
      *
+     * @param newUser The user to be added
      * */
     public void addUser(User newUser) {
 
@@ -24,6 +25,7 @@ public class UserDAO {
 
     /** This method removes a user from the database
      *
+     * @param oldUser The user to be deleted
      * */
     public void deleteUser(User oldUser){
 
@@ -31,6 +33,7 @@ public class UserDAO {
 
     /** This method tries to find a user in the database
      *
+     * @param myUser The user being queried
      * */
     public void query(User myUser) {
 

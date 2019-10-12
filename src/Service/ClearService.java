@@ -17,6 +17,7 @@ public class ClearService {
 
     /** Clears database and returns ClearResult
      *
+     * @return Returns the success or failure of the clear operation
      * */
     public ClearResult clearDatabase() {
 

@@ -22,6 +22,7 @@ public class AllEventsResult {
 
     /** Constructor for AllEventsResult successes
      *
+     * @param events List of events that need to be returned
      * */
     public AllEventsResult(Event[] events) {
         this.events = events;
@@ -29,6 +30,7 @@ public class AllEventsResult {
 
     /** Constructor for AllEventsResult failures
      *
+     * @param message The error message
      * */
     public AllEventsResult(String message) {
         this.message = message;

@@ -16,9 +16,11 @@ public class RegisterService {
 
     }
 
-    /** Takes RegisterRequest, creates new user, creates 4 generations
-     * of ancestor data, logs user in, and returns AuthToken
+    /** Registers a user
      *
+     * @return Returns AuthToken with UserName and PersonID if successful or error message if failure
+     *
+     * @param request Takes a request to set up a new user
      * */
     public RegisterResult login(RegisterRequest request) {
 

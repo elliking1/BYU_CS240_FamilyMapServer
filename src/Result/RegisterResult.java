@@ -25,6 +25,9 @@ public class RegisterResult {
 
     /** Constructor for RegisterResult Successes
      *
+     * @param authToken AuthToken assigned to the user
+     * @param personID PersonID of person assigned to AuthToken
+     * @param userName UserName of user assigned to AuthToken
      * */
     public RegisterResult(String authToken, String userName, String personID) {
         this.authToken = authToken;
@@ -34,6 +37,7 @@ public class RegisterResult {
 
     /** Constructor for RegisterRequest Failures
      *
+     * @param message Error Message
      * */
     public RegisterResult(String message) {
         this.message = message;

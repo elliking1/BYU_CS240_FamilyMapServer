@@ -18,6 +18,8 @@ public class LoginRequest {
 
     /** Non-empty constructor for LoginRequest
      *
+     * @param userName UserName of user trying to login in
+     * @param password Password of user trying to login in
      *  */
     public LoginRequest(String userName, String password) {
         this.userName = userName;

@@ -37,6 +37,14 @@ public class Person {
 
     /** Non-empty constructor for Person
      *
+     * @param personID Unique identifier of person
+     * @param associatedUserName UserName of person's FamilyMap account
+     * @param firstName First name of person
+     * @param lastName Last name of person
+     * @param gender Gender of person
+     * @param fatherID PersonID of this person's father
+     * @param motherID PersonID of this person's mother
+     * @param spouseID PersonID of this person's spouse
      * */
     public Person(String personID, String associatedUserName, String firstName, String lastName, String gender, String fatherID, String motherID, String spouseID) {
         this.personID = personID;

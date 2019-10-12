@@ -22,6 +22,7 @@ public class AllPeopleResult {
 
     /** Constructor for AllPeopleResult Successes
      *
+     * @param persons List of people to return
      * */
     public AllPeopleResult(Person[] persons) {
         this.persons = persons;
@@ -29,6 +30,7 @@ public class AllPeopleResult {
 
     /** Constructor for AllPeopleResult Failures
      *
+     * @param message Error message
      * */
     public AllPeopleResult(String message) {
         this.message = message;

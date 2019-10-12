@@ -25,8 +25,11 @@ public class LoadRequest {
 
     }
 
-    /** Non-empty constructur for LoadRequest
+    /** Non-empty constructor for LoadRequest
      *
+     * @param users List of users to be loaded into database
+     * @param persons List of people to be loaded into database
+     * @param events List of events to be loaded into database
      * */
     public LoadRequest(User[] users, Person[] persons, Event[] events) {
         this.users = users;

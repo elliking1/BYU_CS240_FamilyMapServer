@@ -16,6 +16,7 @@ public class FillService {
 
     /** Fills database and returns FillResult
      *
+     * @return Returns the success or failure of the clear operation
      * */
     public FillResult fillDatabase() {
 

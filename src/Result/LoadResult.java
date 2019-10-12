@@ -16,6 +16,7 @@ public class LoadResult {
 
     /** Non-empty constructor for LoadResult
      *
+     * @param message Success or Error Message
      * */
     public LoadResult(String message) {
         this.message = message;

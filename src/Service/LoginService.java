@@ -15,8 +15,11 @@ public class LoginService {
 
     }
 
-    /** Takes LoginRequest, logs user in, and returns AuthToken
+    /** Logs user in
      *
+     * @return Returns AuthToken with UserName and PersonID if successful or error message if failure
+     *
+     * @param request The data of the user that is requesting to log in
      * */
     public LoginResult login(LoginRequest request) {
 

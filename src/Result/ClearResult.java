@@ -16,6 +16,7 @@ public class ClearResult {
 
     /** Non-empty constructor for ClearResult
      *
+     * @param message Success/Error Message
      * */
     public ClearResult(String message) {
         this.message = message;

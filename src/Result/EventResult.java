@@ -42,7 +42,15 @@ public class EventResult {
     }
 
     /** Constructor for EventResult successes
-     *
+     * @param eventID Unique identifier of the event
+     * @param associatedUserName UserName of user that the event belongs to
+     * @param personID PersonID of User event belongs to
+     * @param latitude Latitude of where the event was
+     * @param longitude Longitude of where the event was
+     * @param city City where event occurred
+     * @param country Country where event occurred
+     * @param eventType The type of event (i.e. birth, death, baptism, wedding, etc.)
+     * @param year Year event occurred
      * */
     public EventResult(String associatedUserName, String eventID, String personID, double latitude, double longitude, String country, String city, String eventType, String year) {
         this.associatedUserName = associatedUserName;
@@ -58,6 +66,7 @@ public class EventResult {
 
     /** Constructor for EventResult failures
      *
+     * @param message Error Message
      * */
     public EventResult(String message) {
         this.message = message;

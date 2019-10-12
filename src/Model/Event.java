@@ -40,6 +40,15 @@ public class Event {
 
     /** Non-empty constructor for Event
      *
+     * @param eventID Unique identifier of the event
+     * @param associatedUserName UserName of user that the event belongs to
+     * @param personID PersonID of User event belongs to
+     * @param latitude Latitude of where the event was
+     * @param longitude Longitude of where the event was
+     * @param city City where event occurred
+     * @param country Country where event occurred
+     * @param eventType The type of event (i.e. birth, death, baptism, wedding, etc.)
+     * @param year Year event occurred
      * */
     public Event(String eventID, String associatedUserName, String personID, double latitude, double longitude, String country, String city, String eventType, String year) {
         EventID = eventID;

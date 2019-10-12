@@ -31,6 +31,12 @@ public class RegisterRequest {
 
     /** Non-empty constructor for RegisterRequest
      *
+     * @param userName UserName that person registering wants to use
+     * @param password Password that person registering wants to use
+     * @param email Email that person registering wants to use
+     * @param firstName First name of person registering
+     * @param lastName Last name of person registering
+     * @param gender Gender of person registering
      *  */
     public RegisterRequest(String userName, String password, String email, String firstName, String lastName, String gender) {
         this.userName = userName;
