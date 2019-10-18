@@ -1,11 +1,17 @@
 package DAO;
 
 import Model.Person;
+import java.sql.*;
+
 /**
  * This class accesses the Person table and its data in the database
  * @author Cameron Brown
  */
 public class PersonDAO {
+    /**
+     * Database connection
+     */
+    private Connection myConnection;
 
     /** Empty constructor for PersonDAO
      *
@@ -14,12 +20,40 @@ public class PersonDAO {
 
     }
 
+    /** Constructor for PersonDAO with a connection parameter
+     *
+     * @param conn Database connection
+     * */
+    public PersonDAO(Connection conn) {
+        this.myConnection = conn;
+    }
+
     /** This method adds a new person to the database
      *
      * @param newPerson The person to be added
+     *
+     * @throws DatabaseException if an error occurs trying to access it
      * */
-    public void addPerson(Person newPerson) {
+    public void addPerson(Person newPerson) throws DatabaseException {
+        String sql = "INSERT INTO Person (PersonID, AssociatedUsername, FirstName, LastName, Gender, " +
+                "FatherID, MotherID, SpouseID) VALUES(?,?,?,?,?,?,?,?)";
+        try (PreparedStatement stmt = myConnection.prepareStatement(sql)) {
+            //Using the statements built-in set(type) functions we can pick the question mark we want
+            //to fill in and give it a proper value. The first argument corresponds to the first
+            //question mark found in our sql String
+            stmt.setString(1, newPerson.getPersonID());
+            stmt.setString(2, newPerson.getAssociatedUserName());
+            stmt.setString(3, newPerson.getFirstName());
+            stmt.setString(4, newPerson.getLastName());
+            stmt.setString(5, newPerson.getGender());
+            stmt.setString(6, newPerson.getFatherID());
+            stmt.setString(7, newPerson.getMotherID());
+            stmt.setString(8, newPerson.getSpouseID());
 
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new DatabaseException("Error encountered while inserting Person data into the database");
+        }
     }
 
     /** This method removes a person from the database

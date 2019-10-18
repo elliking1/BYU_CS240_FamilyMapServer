@@ -4,12 +4,104 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="110685c6-2ae1-4c9f-9bd4-aa2406b31c0f" name="Default Changelist" comment="" />
+    <list default="true" id="110685c6-2ae1-4c9f-9bd4-aa2406b31c0f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadocs/DAO/AuthTokenDAO.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadocs/DAO/AuthTokenDAO.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadocs/DAO/Database.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadocs/DAO/Database.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadocs/DAO/DatabaseException.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadocs/DAO/DatabaseException.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadocs/DAO/EventDAO.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadocs/DAO/EventDAO.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadocs/DAO/PersonDAO.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadocs/DAO/PersonDAO.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadocs/DAO/UserDAO.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadocs/DAO/UserDAO.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadocs/DAO/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadocs/DAO/package-summary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadocs/DAO/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadocs/DAO/package-tree.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadocs/Model/AuthToken.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadocs/Model/AuthToken.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadocs/Model/Event.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadocs/Model/Event.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadocs/Model/Person.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadocs/Model/Person.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadocs/Model/User.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadocs/Model/User.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadocs/Model/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadocs/Model/package-summary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadocs/Model/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadocs/Model/package-tree.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadocs/Request/LoadRequest.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadocs/Request/LoadRequest.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadocs/Request/LoginRequest.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadocs/Request/LoginRequest.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadocs/Request/RegisterRequest.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadocs/Request/RegisterRequest.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadocs/Request/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadocs/Request/package-summary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadocs/Request/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadocs/Request/package-tree.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadocs/Result/AllEventsResult.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadocs/Result/AllEventsResult.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadocs/Result/AllPeopleResult.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadocs/Result/AllPeopleResult.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadocs/Result/ClearResult.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadocs/Result/ClearResult.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadocs/Result/EventResult.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadocs/Result/EventResult.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadocs/Result/FillResult.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadocs/Result/FillResult.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadocs/Result/LoadResult.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadocs/Result/LoadResult.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadocs/Result/LoginResult.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadocs/Result/LoginResult.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadocs/Result/PersonResult.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadocs/Result/PersonResult.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadocs/Result/RegisterResult.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadocs/Result/RegisterResult.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadocs/Result/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadocs/Result/package-summary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadocs/Result/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadocs/Result/package-tree.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadocs/Service/AllEventsService.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadocs/Service/AllEventsService.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadocs/Service/AllPeopleService.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadocs/Service/AllPeopleService.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadocs/Service/ClearService.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadocs/Service/ClearService.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadocs/Service/EventService.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadocs/Service/EventService.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadocs/Service/FillService.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadocs/Service/FillService.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadocs/Service/LoadService.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadocs/Service/LoadService.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadocs/Service/LoginService.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadocs/Service/LoginService.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadocs/Service/PersonService.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadocs/Service/PersonService.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadocs/Service/RegisterService.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadocs/Service/RegisterService.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadocs/Service/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadocs/Service/package-summary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadocs/Service/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadocs/Service/package-tree.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadocs/allclasses-index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadocs/allclasses-index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadocs/allpackages-index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadocs/allpackages-index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadocs/constant-values.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadocs/constant-values.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadocs/deprecated-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadocs/deprecated-list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadocs/help-doc.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadocs/help-doc.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadocs/index-files/index-1.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadocs/index-files/index-1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadocs/index-files/index-10.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadocs/index-files/index-10.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadocs/index-files/index-11.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadocs/index-files/index-11.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadocs/index-files/index-12.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadocs/index-files/index-12.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadocs/index-files/index-13.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadocs/index-files/index-13.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadocs/index-files/index-14.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadocs/index-files/index-14.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadocs/index-files/index-15.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadocs/index-files/index-15.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadocs/index-files/index-16.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadocs/index-files/index-16.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadocs/index-files/index-2.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadocs/index-files/index-2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadocs/index-files/index-3.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadocs/index-files/index-3.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadocs/index-files/index-4.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadocs/index-files/index-4.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadocs/index-files/index-5.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadocs/index-files/index-5.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadocs/index-files/index-6.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadocs/index-files/index-6.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadocs/index-files/index-7.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadocs/index-files/index-7.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadocs/index-files/index-8.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadocs/index-files/index-8.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadocs/index-files/index-9.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadocs/index-files/index-9.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadocs/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadocs/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadocs/member-search-index.js" beforeDir="false" afterPath="$PROJECT_DIR$/Javadocs/member-search-index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadocs/member-search-index.zip" beforeDir="false" afterPath="$PROJECT_DIR$/Javadocs/member-search-index.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadocs/overview-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadocs/overview-summary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadocs/overview-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadocs/overview-tree.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadocs/package-search-index.zip" beforeDir="false" afterPath="$PROJECT_DIR$/Javadocs/package-search-index.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadocs/serialized-form.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadocs/serialized-form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadocs/type-search-index.zip" beforeDir="false" afterPath="$PROJECT_DIR$/Javadocs/type-search-index.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbschema.txt" beforeDir="false" afterPath="$PROJECT_DIR$/dbschema.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myDatabase.db" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DAO/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAO/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DAO/PersonDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAO/PersonDAO.java" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -70,7 +162,8 @@
       <workItem from="1570769080665" duration="1504000" />
       <workItem from="1570771801547" duration="11181000" />
       <workItem from="1570809359450" duration="11421000" />
-      <workItem from="1571367962030" duration="3708000" />
+      <workItem from="1571367962030" duration="3894000" />
+      <workItem from="1571412807088" duration="3296000" />
     </task>
     <servers />
   </component>
