@@ -25,17 +25,20 @@ public class UserDAO {
 
     /** This method removes a user from the database
      *
-     * @param oldUser The user to be deleted
+     * @param userName The username of the user to be deleted
      * */
-    public void deleteUser(User oldUser){
+    public void deleteUser(String userName){
 
     }
 
     /** This method tries to find a user in the database
      *
-     * @param myUser The user being queried
+     * @param userName The username of the user being queried
+     *
+     * @return A User
      * */
-    public void query(User myUser) {
+    public User query(String userName) {
 
+        return null;
     }
 }

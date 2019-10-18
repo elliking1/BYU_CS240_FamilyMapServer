@@ -10,9 +10,7 @@ CREATE TABLE Users (
     FirstName VARCHAR(255) NOT NULL,
     LastName VARCHAR(255) NOT NULL,
     Gender CHAR(1) CHECK(Gender IN ("f", "m")) NOT NULL,
-    PersonID VARCHAR(255) NOT NULL,
-    PRIMARY KEY (UserName),
-    FOREIGN KEY (PersonID) REFERENCES Persons(PersonID)
+    PersonID VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE Persons (
@@ -23,12 +21,7 @@ CREATE TABLE Persons (
     Gender CHAR(1) CHECK(Gender IN ("f", "m")) NOT NULL,
     FatherID VARCHAR(255),
     MotherID VARCHAR(255),
-    SpouseID VARCHAR(255),
-    PRIMARY KEY (PersonID),
-    FOREIGN KEY (AssociatedUserName) REFERENCES Users(UserName),
-    FOREIGN KEY (FatherID) REFERENCES Persons(PersonID),
-    FOREIGN KEY (MotherID) REFERENCES Persons(PersonID),
-    FOREIGN KEY (SpouseID) REFERENCES Persons(PersonID)
+    SpouseID VARCHAR(255)
 );
 
 CREATE TABLE Events (
@@ -40,16 +33,11 @@ CREATE TABLE Events (
     Country VARCHAR(255) NOT NULL,
     City VARCHAR(255) NOT NULL,
     EventType VARCHAR(255) NOT NULL,
-    Year INTEGER NOT NULL,
-    PRIMARY KEY (EventID),
-    FOREIGN KEY (AssociatedUserName) REFERENCES Users(UserName),
-    FOREIGN KEY (PersonID) REFERENCES Persons(PersonID)
+    Year INTEGER NOT NULL
 );
 
 CREATE TABLE AuthTokens (
     Token VARCHAR(255) NOT NULL,
-    AssociatedUserName VARCHAR(255) NOT NULL,
-    PRIMARY KEY (Token),
-    FOREIGN KEY (AssociatedUserName) REFERENCES Users(UserName)
+    AssociatedUserName VARCHAR(255) NOT NULL
 );
 

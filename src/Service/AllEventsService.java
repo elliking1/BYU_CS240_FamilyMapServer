@@ -18,9 +18,9 @@ public class AllEventsService {
     /** Get All Events tied to current user
      *
      * @return Returns ALL events for ALL family members of the current user
-     * @param userName UserName of user whose events these are
+     * @param authToken Auth Token of user whose events these are
      * */
-    public AllEventsResult getAllEvents(String userName) {
+    public AllEventsResult getAllEvents(String authToken) {
 
         return null;
     }

@@ -24,17 +24,39 @@ public class PersonDAO {
 
     /** This method removes a person from the database
      *
-     * @param oldPerson The person to be deleted
+     * @param personID The ID of the person to be deleted
      * */
-    public void deletePerson(Person oldPerson){
+    public void deletePerson(String personID){
+
+    }
+
+    /** This method removes all people from the database
+     *
+     *  @param userName The User Name of all people to be deleted
+     * */
+    public void deleteUsersPeople(String userName) {
 
     }
 
     /** This method tries to find a person in the database
      *
-     * @param myPerson The person being queried
+     * @param personID The ID of the person being queried
+     *
+     * @return The person being queried
      * */
-    public void query(Person myPerson) {
+    public Person query(String personID) {
 
+        return null;
+    }
+
+    /** This method tries to find all people in the database for a specific user
+     *
+     * @param userName The UserName of the user whose people are being queried for
+     *
+     * @return Person model
+     * */
+    public Person queryUsersPeople(String userName) {
+
+        return null;
     }
 }

@@ -17,9 +17,9 @@ public class AllPeopleService {
     /** Get All People tied to current user
      *
      * @return Returns ALL family members of the current user
-     * @param userName UserName of user whose relatives these are
+     * @param authToken Auth Token of user whose relatives these are
      * */
-    public AllPeopleResult getAllPeople(String userName) {
+    public AllPeopleResult getAllPeople(String authToken) {
 
         return null;
     }

@@ -15,8 +15,9 @@ public class EventService {
      *
      * @return Returns specified event
      * @param eventID The unique ID of the event to be returned
+     * @param authToken The Auth Token of the person's event that is being retrieved
      * */
-    public EventResult getEvent(String eventID) {
+    public EventResult getEvent(String eventID, String authToken) {
 
         return null;
     }

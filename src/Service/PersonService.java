@@ -19,8 +19,9 @@ public class PersonService {
      * @return Returns person object with specified personID
      *
      * @param personID The PersonID of the person being retrieved
+     * @param authToken The Auth Token of the person being retrieved
      * */
-    public PersonResult getPerson(String personID) {
+    public PersonResult getPerson(String personID, String authToken) {
 
         return null;
     }
