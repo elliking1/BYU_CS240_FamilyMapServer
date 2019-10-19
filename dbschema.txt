@@ -4,22 +4,22 @@ DROP TABLE IF EXISTS Events;
 DROP TABLE IF EXISTS AuthTokens;
 
 CREATE TABLE Users (
-    UserName VARCHAR(255) NOT NULL,
+    UserName VARCHAR(255) NOT NULL UNIQUE,
     Password VARCHAR(255) NOT NULL,
     Email VARCHAR(255) NOT NULL,
     FirstName VARCHAR(255) NOT NULL,
     LastName VARCHAR(255) NOT NULL,
-    Gender CHAR(1) CHECK(Gender IN ("f", "m")) NOT NULL,
+    Gender CHAR(1) CHECK(Gender IN ('f', 'm')) NOT NULL,
     PersonID VARCHAR(255) NOT NULL,
     PRIMARY KEY (UserName)
 );
 
 CREATE TABLE Persons (
-    PersonID VARCHAR(255) NOT NULL,
+    PersonID VARCHAR(255) NOT NULL UNIQUE,
     AssociatedUserName VARCHAR(255),
     FirstName VARCHAR(255) NOT NULL,
     LastName VARCHAR(255) NOT NULL,
-    Gender CHAR(1) CHECK(Gender IN ("f", "m")) NOT NULL,
+    Gender CHAR(1) CHECK(Gender IN ('f', 'm')) NOT NULL,
     FatherID VARCHAR(255),
     MotherID VARCHAR(255),
     SpouseID VARCHAR(255),
@@ -27,11 +27,11 @@ CREATE TABLE Persons (
 );
 
 CREATE TABLE Events (
-    EventID VARCHAR(255) NOT NULL,
+    EventID VARCHAR(255) NOT NULL UNIQUE,
     AssociatedUserName VARCHAR(255) NOT NULL,
     PersonID VARCHAR(255) NOT NULL,
-    Latitude DECIMAL(9, 6) NOT NULL,
-    Longitude DECIMAL(9, 6) NOT NULL,
+    Latitude FLOAT NOT NULL,
+    Longitude FLOAT NOT NULL,
     Country VARCHAR(255) NOT NULL,
     City VARCHAR(255) NOT NULL,
     EventType VARCHAR(255) NOT NULL,
@@ -40,7 +40,7 @@ CREATE TABLE Events (
 );
 
 CREATE TABLE AuthTokens (
-    Token VARCHAR(255) NOT NULL,
+    Token VARCHAR(255) NOT NULL UNIQUE,
     AssociatedUserName VARCHAR(255) NOT NULL,
     PRIMARY KEY (Token)
 );

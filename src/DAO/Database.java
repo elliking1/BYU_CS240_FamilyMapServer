@@ -28,7 +28,7 @@ public class Database {
      */
     public Connection openConnection() throws DatabaseException {
         try {
-            final String CONNECTION_URL = "jdbd:sqlite:src/db.sqlite";
+            final String CONNECTION_URL = "jdbc:sqlite:db.sqlite";
 
             myConnection = DriverManager.getConnection(CONNECTION_URL);
         } catch (SQLException e){
@@ -93,21 +93,52 @@ public class Database {
             //We pull out a statement from the connection we just established
             //Statements are the basis for our transactions in SQL
             //Format this string to be exactly like a sql create table command
-            String sql = "CREATE TABLE IF NOT EXISTS Events " +
+            String sql =
+                    "CREATE TABLE IF NOT EXISTS Events " +
                     "(" +
-                    "EventID text not null unique, " +
-                    "AssociatedUsername text not null, " +
-                    "PersonID text not null, " +
-                    "Latitude float not null, " +
-                    "Longitude float not null, " +
-                    "Country text not null, " +
-                    "City text not null, " +
-                    "EventType text not null, " +
-                    "Year int not null, " +
-                    "primary key (EventID), " +
-                    "foreign key (AssociatedUsername) references Users(Username), " +
-                    "foreign key (PersonID) references Persons(PersonID)" +
-                    ")";
+                        "EventID VARCHAR(255) NOT NULL," +
+                        "AssociatedUserName VARCHAR(255) NOT NULL," +
+                        "PersonID VARCHAR(255) NOT NULL," +
+                        "Latitude DECIMAL(9, 6) NOT NULL," +
+                        "Longitude DECIMAL(9, 6) NOT NULL," +
+                        "Country VARCHAR(255) NOT NULL," +
+                        "City VARCHAR(255) NOT NULL," +
+                        "EventType VARCHAR(255) NOT NULL," +
+                        "Year INTEGER NOT NULL," +
+                        "PRIMARY KEY (EventID)" +
+                    "); " +
+
+                    "CREATE TABLE IF NOT EXISTS Users" +
+                    "(" +
+                        "UserName VARCHAR(255) NOT NULL UNIQUE," +
+                        "Password VARCHAR(255) NOT NULL," +
+                        "Email VARCHAR(255) NOT NULL," +
+                        "FirstName VARCHAR(255) NOT NULL," +
+                        "LastName VARCHAR(255) NOT NULL," +
+                        "Gender CHAR(1) CHECK(Gender IN ('f', 'm')) NOT NULL," +
+                        "PersonID VARCHAR(255) NOT NULL," +
+                        "PRIMARY KEY (UserName)" +
+                    ");" +
+
+                    "CREATE TABLE IF NOT EXISTS Persons " +
+                    "(" +
+                        "PersonID VARCHAR(255) NOT NULL," +
+                        "AssociatedUserName VARCHAR(255)," +
+                        "FirstName VARCHAR(255) NOT NULL," +
+                        "LastName VARCHAR(255) NOT NULL," +
+                        "Gender CHAR(1) CHECK(Gender IN ('f', 'm')) NOT NULL," +
+                        "FatherID VARCHAR(255)," +
+                        "MotherID VARCHAR(255)," +
+                        "SpouseID VARCHAR(255)," +
+                        "PRIMARY KEY (PersonID)" +
+                    ");" +
+
+                    "CREATE TABLE IF NOT EXISTS AuthTokens" +
+                    "(" +
+                        "Token VARCHAR(255) NOT NULL," +
+                        "AssociatedUserName VARCHAR(255) NOT NULL," +
+                        "PRIMARY KEY (Token)" +
+                    ");";
 
             stmt.executeUpdate(sql);
             //if we got here without any problems we successfully created the table and can commit
@@ -120,14 +151,18 @@ public class Database {
     }
 
     /**
-     * This method deletes the tables in the database
+     * This method clears the tables in the database
      *
      * @throws DatabaseException  An exception that occurs while trying to clear the tables in the database
      */
     public void clearTables() throws DatabaseException {
 
         try (Statement stmt = myConnection.createStatement()){
-            String sql = "DELETE FROM Events";
+            String sql =
+                    "DELETE FROM Events;" +
+                    "DELETE FROM Persons;" +
+                    "DELETE FROM Users;" +
+                    "DELETE FROM AuthTokens;";
             stmt.executeUpdate(sql);
         } catch (SQLException e) {
             throw new DatabaseException("SQL Error encountered while clearing tables");

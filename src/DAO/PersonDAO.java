@@ -2,6 +2,7 @@ package DAO;
 
 import Model.Person;
 import java.sql.*;
+import java.util.ArrayList;
 
 /**
  * This class accesses the Person table and its data in the database
@@ -35,8 +36,7 @@ public class PersonDAO {
      * @throws DatabaseException if an error occurs trying to access it
      * */
     public void addPerson(Person newPerson) throws DatabaseException {
-        String sql = "INSERT INTO Person (PersonID, AssociatedUsername, FirstName, LastName, Gender, " +
-                "FatherID, MotherID, SpouseID) VALUES(?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO Persons(PersonID, AssociatedUsername, FirstName, LastName, Gender, FatherID, MotherID, SpouseID) VALUES(?,?,?,?,?,?,?,?)";
         try (PreparedStatement stmt = myConnection.prepareStatement(sql)) {
             //Using the statements built-in set(type) functions we can pick the question mark we want
             //to fill in and give it a proper value. The first argument corresponds to the first
@@ -45,7 +45,7 @@ public class PersonDAO {
             stmt.setString(2, newPerson.getAssociatedUserName());
             stmt.setString(3, newPerson.getFirstName());
             stmt.setString(4, newPerson.getLastName());
-            stmt.setString(5, newPerson.getGender());
+            stmt.setString(5, String.valueOf(newPerson.getGender()));
             stmt.setString(6, newPerson.getFatherID());
             stmt.setString(7, newPerson.getMotherID());
             stmt.setString(8, newPerson.getSpouseID());
@@ -59,27 +59,71 @@ public class PersonDAO {
     /** This method removes a person from the database
      *
      * @param personID The ID of the person to be deleted
+     *
+     * @throws DatabaseException
      * */
-    public void deletePerson(String personID){
-
+    public void deletePerson(String personID) throws DatabaseException {
+        String sql = "DELETE FROM Persons WHERE PersonID = ?";
+        try (PreparedStatement stmt = myConnection.prepareStatement(sql)) {
+            stmt.setString(1, personID);
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new DatabaseException("Error encountered while deleting person");
+        }
     }
 
     /** This method removes all people from the database
      *
      *  @param userName The User Name of all people to be deleted
+     *
+     * @throws DatabaseException
      * */
-    public void deleteUsersPeople(String userName) {
-
+    public void deleteUsersPeople(String userName) throws DatabaseException {
+        String sql = "DELETE FROM Persons WHERE AssociatedUserName = ?";
+        try (PreparedStatement stmt = myConnection.prepareStatement(sql)) {
+            stmt.setString(1, userName);
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new DatabaseException("Error encountered while deleting person");
+        }
     }
 
     /** This method tries to find a person in the database
      *
      * @param personID The ID of the person being queried
      *
+     * @throws DatabaseException
+     *
      * @return The person being queried
      * */
-    public Person query(String personID) {
+    public Person query(String personID) throws DatabaseException {
+        Person person;
+        ResultSet rs = null;
+        String sql = "SELECT * FROM Persons WHERE PersonID = ?;";
+        try (PreparedStatement stmt = myConnection.prepareStatement(sql)) {
+            stmt.setString(1, personID);
+            rs = stmt.executeQuery();
+            if (rs.next()) {
+                person = new Person(rs.getString("PersonID"), rs.getString("AssociatedUsername"),
+                        rs.getString("FirstName"), rs.getString("LastName"), rs.getString("Gender"),
+                        rs.getString("FatherID"), rs.getString("MotherID"), rs.getString("SpouseID"));
+                return person;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new DatabaseException("Error encountered while finding person");
+        } finally {
+            if(rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
 
+        }
         return null;
     }
 
@@ -87,10 +131,38 @@ public class PersonDAO {
      *
      * @param userName The UserName of the user whose people are being queried for
      *
+     * @throws DatabaseException
+     *
      * @return Person model
      * */
-    public Person queryUsersPeople(String userName) {
+    public ArrayList<Person> queryUsersPeople(String userName) throws DatabaseException {
+        ArrayList<Person> list = new ArrayList<Person>();
 
-        return null;
+        Person person;
+        ResultSet rs = null;
+        String sql = "SELECT * FROM Persons WHERE AssociatedUserName = ?;";
+        try (PreparedStatement stmt = myConnection.prepareStatement(sql)) {
+            stmt.setString(1, userName);
+            rs = stmt.executeQuery();
+            while (rs.next()) {
+                person = new Person(rs.getString("PersonID"), rs.getString("AssociatedUsername"),
+                        rs.getString("FirstName"), rs.getString("LastName"), rs.getString("Gender"),
+                        rs.getString("FatherID"), rs.getString("MotherID"), rs.getString("SpouseID"));
+                list.add(person);
+            }
+            return list;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new DatabaseException("Error encountered while finding person");
+        } finally {
+            if(rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+
+        }
     }
 }
