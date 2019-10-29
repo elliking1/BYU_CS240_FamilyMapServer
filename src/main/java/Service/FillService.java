@@ -1,6 +1,6 @@
 package Service;
 
-import Result.FillResult;
+import Result.StandardResult;
 
 /**
  * This class fills the database
@@ -22,7 +22,7 @@ public class FillService {
      *
      * @return Returns the success or failure of the clear operation
      * */
-    public FillResult fillDatabase(String userName, int generations) {
+    public StandardResult fillDatabase(String userName, int generations) {
 
         return null;
     }
@@ -35,7 +35,7 @@ public class FillService {
      *
      * @return Returns the success or failure of the clear operation
      * */
-    public FillResult fillDatabase(String userName) {
+    public StandardResult fillDatabase(String userName) {
 
         return null;
     }

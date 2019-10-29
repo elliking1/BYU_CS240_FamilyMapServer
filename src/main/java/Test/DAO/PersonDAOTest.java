@@ -285,5 +285,36 @@ public class PersonDAOTest {
         }
         assertNotEquals(peopleList.size(), 2);
     }
+
+    @Test
+    public void clearPersonsTablePass() throws Exception {
+        // Test if it cleared everything by adding two people with no related information
+        // to the database and make sure they were both deleted.
+        Person compareTest = null;
+        Person compareTestTwo = null;
+        Person personTwo = null;
+        try {
+            Connection conn = db.openConnection();
+            conn.setAutoCommit(false);
+
+            PersonDAO pDao = new PersonDAO(conn);
+
+            pDao.addPerson(myPerson);
+
+            personTwo = new Person("person2", "awesome2", "Stanley", "Kubrick", "m", "bobKubrick", "momKubrick", "divorced");
+            pDao.addPerson(personTwo);
+
+            pDao.clearPersonsTable();
+
+            compareTest = pDao.queryPerson(myPerson.getPersonID());
+            compareTestTwo = pDao.queryPerson(personTwo.getPersonID());
+
+            db.closeConnection(true);
+        } catch (DatabaseException e) {
+            db.closeConnection(false);
+        }
+        assertNull(compareTest);
+        assertNull(compareTestTwo);
+    }
 }
 

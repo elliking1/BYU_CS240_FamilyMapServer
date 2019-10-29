@@ -6,7 +6,7 @@ import Model.Event;
  * This class handles the result of returning all events for all family members of current user
  * @author Cameron Brown
  */
-public class AllEventsResult {
+public class AllEventsResult extends StandardResult {
     /** Array of Event Objects */
     private Event[] events;
 

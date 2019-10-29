@@ -3,7 +3,7 @@ package Result;
  * This class handles results for the Register API
  * @author Cameron Brown
  */
-public class RegisterResult {
+public class RegisterResult extends StandardResult {
     /** AuthToken for the user */
     private String authToken;
 
@@ -12,9 +12,6 @@ public class RegisterResult {
 
     /** PersonID of the user */
     private String personID;
-
-    /** Error Message */
-    private String message;
 
     /** Empty constructor for RegisterResult
      *
@@ -67,11 +64,4 @@ public class RegisterResult {
         this.personID = personID;
     }
 
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
 }

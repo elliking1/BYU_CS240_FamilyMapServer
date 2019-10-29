@@ -1,7 +1,7 @@
 package Service;
 
 import Request.LoadRequest;
-import Result.LoadResult;
+import Result.StandardResult;
 
 /**
  * This class clears all data from the database and then loads
@@ -22,7 +22,7 @@ public class LoadService {
      *
      * @param request Takes data to be loaded into database
      * */
-    public LoadResult load(LoadRequest request) {
+    public StandardResult load(LoadRequest request) {
 
         return null;
     }

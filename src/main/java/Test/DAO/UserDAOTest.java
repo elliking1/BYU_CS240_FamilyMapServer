@@ -198,4 +198,32 @@ public class UserDAOTest {
         }
         assertNull(wasFound);
     }
+
+    @Test
+    public void clearUsersTablePass() throws Exception {
+        User compareTest = null;
+        User compareTestTwo = null;
+        User UserTwo = null;
+        try {
+            Connection conn = db.openConnection();
+            conn.setAutoCommit(false);
+            UserDAO uDao = new UserDAO(conn);
+            uDao.addUser(myUser);
+            UserTwo = new User("CoolUser", "password", "JoeRusso@marvel.com", "Joe", "Russo", "m", "person5");
+
+            uDao.addUser(UserTwo);
+
+            uDao.clearUsersTable();
+
+            compareTest = uDao.queryUser(myUser.getUserName());
+            compareTestTwo = uDao.queryUser(UserTwo.getUserName());
+
+            db.closeConnection(true);
+        } catch (DatabaseException e) {
+            db.closeConnection(false);
+        }
+        assertNull(compareTest);
+        assertNull(compareTestTwo);
+
+    }
 }

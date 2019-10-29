@@ -124,12 +124,12 @@ public class EventDAOTest {
 
         try {
             Connection conn = db.openConnection();
-            EventDAO pDao = new EventDAO(conn);
-            pDao.addEvent(myEvent);
+            EventDAO eDao = new EventDAO(conn);
+            eDao.addEvent(myEvent);
 
-            pDao.deleteEvent(myEvent.getEventID());
+            eDao.deleteEvent(myEvent.getEventID());
 
-            compareTest = pDao.queryEvent(myEvent.getEventID());
+            compareTest = eDao.queryEvent(myEvent.getEventID());
             db.closeConnection(true);
         } catch (DatabaseException e) {
             db.closeConnection(false);
@@ -145,10 +145,10 @@ public class EventDAOTest {
         try {
             Connection conn = db.openConnection();
             conn.setAutoCommit(false);
-            EventDAO pDao = new EventDAO(conn);
-            pDao.addEvent(myEvent);
-            pDao.deleteEvent("Event");
-            compareTest = pDao.queryEvent(myEvent.getEventID());
+            EventDAO eDao = new EventDAO(conn);
+            eDao.addEvent(myEvent);
+            eDao.deleteEvent("Event");
+            compareTest = eDao.queryEvent(myEvent.getEventID());
             db.closeConnection(true);
         } catch (DatabaseException e) {
             db.closeConnection(false);
@@ -166,16 +166,16 @@ public class EventDAOTest {
         try {
             Connection conn = db.openConnection();
             conn.setAutoCommit(false);
-            EventDAO pDao = new EventDAO(conn);
-            pDao.addEvent(myEvent);
+            EventDAO eDao = new EventDAO(conn);
+            eDao.addEvent(myEvent);
             Event eventTwo = new Event("Event2", "Gale", "person1",
                     64.1f, -21.8f, "Iceland", "Reykjavik", "Birth", 2001);
 
-            pDao.addEvent(eventTwo);
-            pDao.deleteAllEventsOfUser(myEvent.getAssociatedUserName());
+            eDao.addEvent(eventTwo);
+            eDao.deleteAllEventsOfUser(myEvent.getAssociatedUserName());
 
-            compareTest = pDao.queryEvent(myEvent.getEventID());
-            compareTestTwo = pDao.queryEvent(eventTwo.getEventID());
+            compareTest = eDao.queryEvent(myEvent.getEventID());
+            compareTestTwo = eDao.queryEvent(eventTwo.getEventID());
 
             db.closeConnection(true);
         } catch (DatabaseException e) {
@@ -192,15 +192,15 @@ public class EventDAOTest {
         try {
             Connection conn = db.openConnection();
             conn.setAutoCommit(false);
-            EventDAO pDao = new EventDAO(conn);
-            pDao.addEvent(myEvent);
+            EventDAO eDao = new EventDAO(conn);
+            eDao.addEvent(myEvent);
             Event eventTwo = new Event("Event2", "Gale", "person1",
                     64.1f, -21.8f, "Iceland", "Reykjavik", "Birth", 2001);
-            pDao.addEvent(eventTwo);
-            pDao.deleteAllEventsOfUser("14324132");
+            eDao.addEvent(eventTwo);
+            eDao.deleteAllEventsOfUser("14324132");
 
-            compareTest = pDao.queryEvent(myEvent.getEventID());
-            compareTestTwo = pDao.queryEvent(eventTwo.getEventID());
+            compareTest = eDao.queryEvent(myEvent.getEventID());
+            compareTestTwo = eDao.queryEvent(eventTwo.getEventID());
             db.closeConnection(true);
         } catch (DatabaseException e) {
             db.closeConnection(false);
@@ -217,11 +217,11 @@ public class EventDAOTest {
         try {
             //Let's get our connection and make a new DAO
             Connection conn = db.openConnection();
-            EventDAO pDao = new EventDAO(conn);
+            EventDAO eDao = new EventDAO(conn);
 
-            pDao.addEvent(myEvent);
+            eDao.addEvent(myEvent);
 
-            compareTest = pDao.queryEvent(myEvent.getEventID());
+            compareTest = eDao.queryEvent(myEvent.getEventID());
             db.closeConnection(true);
         } catch (DatabaseException e) {
             db.closeConnection(false);
@@ -239,8 +239,8 @@ public class EventDAOTest {
         try {
             Connection conn = db.openConnection();
             conn.setAutoCommit(false);
-            EventDAO pDao = new EventDAO(conn);
-            wasFound = pDao.queryEvent(myEvent.getEventID());
+            EventDAO eDao = new EventDAO(conn);
+            wasFound = eDao.queryEvent(myEvent.getEventID());
 
             db.closeConnection(true);
         } catch (DatabaseException e) {
@@ -255,12 +255,12 @@ public class EventDAOTest {
         try {
             Connection conn = db.openConnection();
             conn.setAutoCommit(false);
-            EventDAO pDao = new EventDAO(conn);
-            pDao.addEvent(myEvent);
+            EventDAO eDao = new EventDAO(conn);
+            eDao.addEvent(myEvent);
             Event eventTwo = new Event("Event2", "Gale", "person1",
                     64.1f, -21.8f, "Iceland", "Reykjavik", "Birth", 2001);
-            pDao.addEvent(eventTwo);
-            peopleList = pDao.queryAllEventsOfUser(myEvent.getAssociatedUserName());
+            eDao.addEvent(eventTwo);
+            peopleList = eDao.queryAllEventsOfUser(myEvent.getAssociatedUserName());
 
             db.closeConnection(true);
         } catch (DatabaseException e) {
@@ -276,18 +276,45 @@ public class EventDAOTest {
         try {
             Connection conn = db.openConnection();
             conn.setAutoCommit(false);
-            EventDAO pDao = new EventDAO(conn);
-            pDao.addEvent(myEvent);
+            EventDAO eDao = new EventDAO(conn);
+            eDao.addEvent(myEvent);
             Event eventTwo = new Event("Event2", "Gale", "person1",
                     64.1f, -21.8f, "Iceland", "Reykjavik", "Birth", 2001);
-            pDao.addEvent(eventTwo);
-            peopleList = pDao.queryAllEventsOfUser("dafdfds");
+            eDao.addEvent(eventTwo);
+            peopleList = eDao.queryAllEventsOfUser("dafdfds");
 
             db.closeConnection(true);
         } catch (DatabaseException e) {
             db.closeConnection(false);
         }
         assertNotEquals(peopleList.size(), 2);
+    }
+
+    @Test
+    public void clearEventsTablePass() throws Exception {
+        Event compareTest = null;
+        Event compareTestTwo = null;
+        Event EventTwo = null;
+        try {
+            Connection conn = db.openConnection();
+            conn.setAutoCommit(false);
+            EventDAO eDao = new EventDAO(conn);
+            eDao.addEvent(myEvent);
+            Event eventTwo = new Event("Event2", "Gale", "person1",
+                    64.1f, -21.8f, "Iceland", "Reykjavik", "Birth", 2001);
+            eDao.addEvent(eventTwo);
+
+            eDao.clearEventsTable();
+
+            compareTest = eDao.queryEvent(myEvent.getEventID());
+            compareTestTwo = eDao.queryEvent(eventTwo.getEventID());
+
+            db.closeConnection(true);
+        } catch (DatabaseException e) {
+            db.closeConnection(false);
+        }
+        assertNull(compareTest);
+        assertNull(compareTestTwo);
     }
 }
 

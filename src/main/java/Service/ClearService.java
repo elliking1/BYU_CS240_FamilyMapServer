@@ -1,6 +1,6 @@
 package Service;
 
-import Result.ClearResult;
+import Result.StandardResult;
 
 /**
  * This class deletes ALL data from the database.
@@ -19,7 +19,7 @@ public class ClearService {
      *
      * @return Returns the success or failure of the clear operation
      * */
-    public ClearResult clearDatabase() {
+    public StandardResult clearDatabase() {
 
         return null;
     }

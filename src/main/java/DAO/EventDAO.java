@@ -2,10 +2,7 @@ package DAO;
 
 import Model.Event;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 
 /**
@@ -41,7 +38,7 @@ public class EventDAO {
      * */
     public void addEvent(Event newEvent) throws DatabaseException {
         String sql = "INSERT INTO Events (EventID, AssociatedUserName, PersonID, Latitude, Longitude, " +
-                "Country, City, EventType, Year) VALUES(?,?,?,?,?,?,?,?,?)";
+                "Country, City, EventType, Year) VALUES(?,?,?,?,?,?,?,?,?);";
         try (PreparedStatement stmt = myConnection.prepareStatement(sql)) {
             //Using the statements built-in set(type) functions we can pick the question mark we want
             //to fill in and give it a proper value. The first argument corresponds to the first
@@ -69,7 +66,7 @@ public class EventDAO {
      * @throws DatabaseException An error that occurs while trying to access the database
      * */
     public void deleteEvent(String eventID) throws DatabaseException {
-        String sql = "DELETE FROM Events WHERE EventID = ?";
+        String sql = "DELETE FROM Events WHERE EventID = ?;";
         try (PreparedStatement stmt = myConnection.prepareStatement(sql)) {
             stmt.setString(1,eventID);
             stmt.executeUpdate();
@@ -86,7 +83,7 @@ public class EventDAO {
      * @throws DatabaseException An error that occurs while trying to access Database
      * */
     public void deleteAllEventsOfUser(String userName) throws DatabaseException {
-        String sql = "DELETE FROM Events WHERE AssociatedUserName = ?";
+        String sql = "DELETE FROM Events WHERE AssociatedUserName = ?;";
         try (PreparedStatement stmt = myConnection.prepareStatement(sql)) {
             stmt.setString(1, userName);
             stmt.executeUpdate();
@@ -169,6 +166,19 @@ public class EventDAO {
                     e.printStackTrace();
                 }
             }
+        }
+    }
+
+    /** This method clears the entire Events table
+     *
+     * @throws DatabaseException An exception that occurs when there is trouble accessing the database.
+     * */
+    public void clearEventsTable() throws DatabaseException {
+        try (Statement stmt = myConnection.createStatement()){
+            String sql = "DELETE FROM Events;";
+            stmt.executeUpdate(sql);
+        } catch (SQLException e) {
+            throw new DatabaseException("SQL Error encountered while clearing tables");
         }
     }
 }

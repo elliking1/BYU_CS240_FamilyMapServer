@@ -36,7 +36,7 @@ public class PersonDAO {
      * @throws DatabaseException if an error occurs trying to access it
      * */
     public void addPerson(Person newPerson) throws DatabaseException {
-        String sql = "INSERT INTO Persons(PersonID, AssociatedUserName, FirstName, LastName, Gender, FatherID, MotherID, SpouseID) VALUES(?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO Persons(PersonID, AssociatedUserName, FirstName, LastName, Gender, FatherID, MotherID, SpouseID) VALUES(?,?,?,?,?,?,?,?);";
         try (PreparedStatement stmt = myConnection.prepareStatement(sql)) {
             //Using the statements built-in set(type) functions we can pick the question mark we want
             //to fill in and give it a proper value. The first argument corresponds to the first
@@ -63,7 +63,7 @@ public class PersonDAO {
      * @throws DatabaseException An exception that occurs when there is trouble accessing the database.
      * */
     public void deletePerson(String personID) throws DatabaseException {
-        String sql = "DELETE FROM Persons WHERE PersonID = ?";
+        String sql = "DELETE FROM Persons WHERE PersonID = ?;";
         try (PreparedStatement stmt = myConnection.prepareStatement(sql)) {
             stmt.setString(1, personID);
             stmt.executeUpdate();
@@ -80,7 +80,7 @@ public class PersonDAO {
      * @throws DatabaseException Error when accessing database
      * */
     public void deleteRelativesOfPerson(String userName) throws DatabaseException {
-        String sql = "DELETE FROM Persons WHERE AssociatedUserName = ?";
+        String sql = "DELETE FROM Persons WHERE AssociatedUserName = ?;";
         try (PreparedStatement stmt = myConnection.prepareStatement(sql)) {
             stmt.setString(1, userName);
             stmt.executeUpdate();
@@ -163,6 +163,18 @@ public class PersonDAO {
                 }
             }
 
+        }
+    }
+    /** This method clears the entire Person table
+     *
+     * @throws DatabaseException An exception that occurs when there is trouble accessing the database.
+     * */
+    public void clearPersonsTable() throws DatabaseException {
+        try (Statement stmt = myConnection.createStatement()){
+            String sql = "DELETE FROM Persons;";
+            stmt.executeUpdate(sql);
+        } catch (SQLException e) {
+            throw new DatabaseException("SQL Error encountered while clearing tables");
         }
     }
 }

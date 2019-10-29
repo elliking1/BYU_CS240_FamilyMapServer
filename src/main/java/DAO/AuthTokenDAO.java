@@ -2,10 +2,7 @@ package DAO;
 
 import Model.AuthToken;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 
 /**
@@ -40,7 +37,7 @@ public class AuthTokenDAO {
      * @throws DatabaseException An exception that occurs when there is trouble accessing the database.
      * */
     public void addToken(AuthToken newToken) throws DatabaseException {
-        String sql = "INSERT INTO AuthTokens(Token, AssociatedUserName) VALUES(?,?)";
+        String sql = "INSERT INTO AuthTokens(Token, AssociatedUserName) VALUES(?,?);";
         try (PreparedStatement stmt = myConnection.prepareStatement(sql)) {
             //Using the statements built-in set(type) functions we can pick the question mark we want
             //to fill in and give it a proper value. The first argument corresponds to the first
@@ -61,7 +58,7 @@ public class AuthTokenDAO {
      * @throws DatabaseException An exception that occurs when there is trouble accessing the database.
      * */
     public void deleteToken(String authToken) throws DatabaseException {
-        String sql = "DELETE FROM AuthTokens WHERE Token = ?";
+        String sql = "DELETE FROM AuthTokens WHERE Token = ?;";
         try (PreparedStatement stmt = myConnection.prepareStatement(sql)) {
             stmt.setString(1, authToken);
             stmt.executeUpdate();
@@ -104,6 +101,19 @@ public class AuthTokenDAO {
             }
         }
         return null;
+    }
+
+    /** This method clears the entire AuthTokens table
+     *
+     * @throws DatabaseException An exception that occurs when there is trouble accessing the database.
+     * */
+    public void clearAuthTokensTable() throws DatabaseException {
+        try (Statement stmt = myConnection.createStatement()){
+            String sql = "DELETE FROM AuthTokens;";
+            stmt.executeUpdate(sql);
+        } catch (SQLException e) {
+            throw new DatabaseException("SQL Error encountered while clearing tables");
+        }
     }
 
 }

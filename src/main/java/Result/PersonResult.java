@@ -2,8 +2,9 @@ package Result;
 /**
  * This class handles results for returning a single person object with specified ID
  * @author Cameron Brown
+ *
  */
-public class PersonResult {
+public class PersonResult extends StandardResult {
     /** UserName of person */
     private String associatedUserName;
 
@@ -27,9 +28,6 @@ public class PersonResult {
 
     /** SpouseID, Could be Null */
     private String spouseID;
-
-    /** Error Message */
-    private String message;
 
     /** Empty constructor for PersonResult
      *
@@ -131,11 +129,4 @@ public class PersonResult {
         this.spouseID = spouseID;
     }
 
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
 }

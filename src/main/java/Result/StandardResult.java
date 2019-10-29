@@ -1,0 +1,27 @@
+package Result;
+
+/**
+ * This class handles all standard results that don't require a unique implementation
+ * and serves as parent class for results that do need a unique implementation.
+ * @author Cameron Brown
+ */
+public class StandardResult {
+    /** Success/Error Message */
+    protected String message;
+
+    /** Empty constructor for LoadResult
+     *
+     * */
+    public StandardResult() {
+
+    }
+
+    /** Non-empty constructor for LoadResult
+     *
+     * @param message Success or Error Message
+     * */
+    public StandardResult(String message) {
+        this.message = message;
+    }
+
+}

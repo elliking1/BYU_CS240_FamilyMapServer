@@ -2,10 +2,7 @@ package DAO;
 
 import Model.User;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 /**
  * This class accesses the User table and its data in the database
@@ -39,7 +36,7 @@ public class UserDAO {
      * @throws DatabaseException An exception that occurs when there is trouble accessing the database.
      * */
     public void addUser(User newUser) throws DatabaseException {
-        String sql = "INSERT INTO Users(UserName, Password, Email, FirstName, LastName, Gender, PersonID) VALUES(?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO Users(UserName, Password, Email, FirstName, LastName, Gender, PersonID) VALUES(?,?,?,?,?,?,?);";
         try (PreparedStatement stmt = myConnection.prepareStatement(sql)) {
             //Using the statements built-in set(type) functions we can pick the question mark we want
             //to fill in and give it a proper value. The first argument corresponds to the first
@@ -65,7 +62,7 @@ public class UserDAO {
      * @throws DatabaseException An exception that occurs when there is trouble accessing the database.
      * */
     public void deleteUser(String userName) throws DatabaseException {
-        String sql = "DELETE FROM Users WHERE UserName = ?";
+        String sql = "DELETE FROM Users WHERE UserName = ?;";
         try (PreparedStatement stmt = myConnection.prepareStatement(sql)) {
             stmt.setString(1, userName);
             stmt.executeUpdate();
@@ -112,5 +109,18 @@ public class UserDAO {
 
         }
         return null;
+    }
+
+    /** This method clears the entire User table
+     *
+     * @throws DatabaseException An exception that occurs when there is trouble accessing the database.
+     * */
+    public void clearUsersTable() throws DatabaseException {
+        try (Statement stmt = myConnection.createStatement()){
+            String sql = "DELETE FROM Users;";
+            stmt.executeUpdate(sql);
+        } catch (SQLException e) {
+            throw new DatabaseException("SQL Error encountered while clearing tables");
+        }
     }
 }

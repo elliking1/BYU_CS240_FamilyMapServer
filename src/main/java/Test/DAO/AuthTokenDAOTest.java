@@ -198,4 +198,35 @@ public class AuthTokenDAOTest {
         assertNull(wasFound);
     }
 
+    @Test
+    public void clearAuthTokensTablePass() throws Exception {
+        // Test if it cleared everything by adding two AuthTokens with no related information
+        // to the database and make sure they were both deleted.
+        AuthToken compareTest = null;
+        AuthToken compareTestTwo = null;
+        AuthToken AuthTokenTwo = null;
+        try {
+            Connection conn = db.openConnection();
+            conn.setAutoCommit(false);
+
+            AuthTokenDAO aDao = new AuthTokenDAO(conn);
+
+            aDao.addToken(myAuthToken);
+
+            AuthTokenTwo = new AuthToken("dfadsf44", "coolPerson");
+            aDao.addToken(AuthTokenTwo);
+
+            aDao.clearAuthTokensTable();
+
+            compareTest = aDao.queryToken(myAuthToken.getToken());
+            compareTestTwo = aDao.queryToken(AuthTokenTwo.getToken());
+
+            db.closeConnection(true);
+        } catch (DatabaseException e) {
+            db.closeConnection(false);
+        }
+        assertNull(compareTest);
+        assertNull(compareTestTwo);
+    }
+
 }

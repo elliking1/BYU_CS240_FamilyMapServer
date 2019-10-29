@@ -3,7 +3,7 @@ package Result;
  * This class handles results for returning a single event with specified ID.
  * @author Cameron Brown
  */
-public class EventResult {
+public class EventResult extends StandardResult {
     /** UserName of person that this event belongs to */
     private String associatedUserName;
 
@@ -30,9 +30,6 @@ public class EventResult {
 
     /** Year the event occurred */
     private String year;
-
-    /** Error message */
-    private String message;
 
     /** Empty constructor for EventResult
      *
@@ -144,11 +141,4 @@ public class EventResult {
         this.year = year;
     }
 
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
 }

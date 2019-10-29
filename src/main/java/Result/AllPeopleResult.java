@@ -6,12 +6,9 @@ import Model.Person;
  * This class handles the result of returning all family members of current user
  * @author Cameron Brown
  */
-public class AllPeopleResult {
+public class AllPeopleResult extends StandardResult {
     /** Array of Person Objects */
     private Person[] persons;
-
-    /** Error message */
-    private String message;
 
     /** Empty constructor for AllPeopleResult
      *

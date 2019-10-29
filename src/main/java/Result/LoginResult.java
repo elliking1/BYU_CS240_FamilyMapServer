@@ -3,7 +3,7 @@ package Result;
  * This class handles results for the Login API
  * @author Cameron Brown
  */
-public class LoginResult {
+public class LoginResult extends StandardResult {
 
     /** AuthToken for the user */
     private String authToken;
@@ -13,10 +13,6 @@ public class LoginResult {
 
     /** PersonID of the user */
     private String personID;
-
-    /** Error Message */
-    private String message;
-
 
     /** Empty constructor for LoginResult
      *
@@ -69,11 +65,4 @@ public class LoginResult {
         this.personID = personID;
     }
 
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
 }
