@@ -73,13 +73,13 @@ public class PersonDAO {
         }
     }
 
-    /** This method removes all people from the database
+    /** This method removes all relatives of a single person from the database
      *
-     *  @param userName The User Name of all people to be deleted
+     * @param userName The User Name of all people to be deleted
      *
      * @throws DatabaseException Error when accessing database
      * */
-    public void deleteUsersPeople(String userName) throws DatabaseException {
+    public void deleteRelativesOfPerson(String userName) throws DatabaseException {
         String sql = "DELETE FROM Persons WHERE AssociatedUserName = ?";
         try (PreparedStatement stmt = myConnection.prepareStatement(sql)) {
             stmt.setString(1, userName);
@@ -98,7 +98,7 @@ public class PersonDAO {
      *
      * @return The person being queried
      * */
-    public Person query(String personID) throws DatabaseException {
+    public Person queryPerson(String personID) throws DatabaseException {
         Person person;
         ResultSet rs = null;
         String sql = "SELECT * FROM Persons WHERE PersonID = ?;";
@@ -127,15 +127,15 @@ public class PersonDAO {
         return null;
     }
 
-    /** This method tries to find all people in the database for a specific user
+    /** This method tries to find all relatives of a specific user in the database
      *
      * @param userName The UserName of the user whose people are being queried for
      *
      * @throws DatabaseException An exception that occurs when there is trouble accessing the database.
      *
-     * @return Person model
+     * @return A list of people objects
      * */
-    public ArrayList<Person> queryUsersPeople(String userName) throws DatabaseException {
+    public ArrayList<Person> queryAllRelativesOfUser(String userName) throws DatabaseException {
         ArrayList<Person> list = new ArrayList<Person>();
 
         Person person;

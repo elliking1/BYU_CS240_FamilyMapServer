@@ -50,7 +50,7 @@ public class AuthTokenDAO {
 
             stmt.executeUpdate();
         } catch (SQLException e) {
-            throw new DatabaseException("Error encountered while inserting user data into the database");
+            throw new DatabaseException("Error encountered while inserting token into the database");
         }
     }
 
@@ -67,26 +67,10 @@ public class AuthTokenDAO {
             stmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
-            throw new DatabaseException("Error encountered while deleting user");
+            throw new DatabaseException("Error encountered while deleting token");
         }
     }
 
-    /** This method removes all AuthTokens for a specified user from the database
-     *
-     * @param userName The UserName of the AuthTokens to be removed
-     *
-     * @throws DatabaseException Error that occurs while trying to access Database
-     * */
-    public void deleteUsersTokens(String userName) throws DatabaseException {
-        String sql = "DELETE FROM AuthTokens WHERE AssociatedUserName = ?";
-        try (PreparedStatement stmt = myConnection.prepareStatement(sql)) {
-            stmt.setString(1, userName);
-            stmt.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-            throw new DatabaseException("Error encountered while deleting user");
-        }
-    }
 
     /** This method tries to find an AuthToken in the database
      *
@@ -96,7 +80,7 @@ public class AuthTokenDAO {
      *
      * @return The Auth Token
      * */
-    public AuthToken query(String authToken) throws DatabaseException {
+    public AuthToken queryToken(String authToken) throws DatabaseException {
         AuthToken token;
         ResultSet rs = null;
         String sql = "SELECT * FROM AuthTokens WHERE Token = ?;";
@@ -109,7 +93,7 @@ public class AuthTokenDAO {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            throw new DatabaseException("Error encountered while finding person");
+            throw new DatabaseException("Error encountered while finding token");
         } finally {
             if (rs != null) {
                 try {
@@ -120,41 +104,6 @@ public class AuthTokenDAO {
             }
         }
         return null;
-    }
-
-    /** This method tries to find all Auth Tokens in the database for a specific user
-     *
-     * @param userName The UserName of the user whose tokens are being queried for
-     *
-     * @throws DatabaseException Error that occurs while trying to access Database
-     *
-     * @return  All AuthTokens for a specific user
-     * */
-    public ArrayList<AuthToken> queryUsersTokens(String userName) throws DatabaseException {
-        AuthToken token;
-        ArrayList<AuthToken> tokens = new ArrayList<>();
-        ResultSet rs = null;
-        String sql = "SELECT * FROM AuthTokens WHERE AssociatedUserName = ?;";
-        try (PreparedStatement stmt = myConnection.prepareStatement(sql)) {
-            stmt.setString(1, userName);
-            rs = stmt.executeQuery();
-            while (rs.next()) {
-                token = new AuthToken(rs.getString("Token"), rs.getString("AssociatedUserName"));
-                tokens.add(token);
-            }
-            return tokens;
-        } catch (SQLException e) {
-            e.printStackTrace();
-            throw new DatabaseException("Error encountered while finding person");
-        } finally {
-            if (rs != null) {
-                try {
-                    rs.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
     }
 
 }

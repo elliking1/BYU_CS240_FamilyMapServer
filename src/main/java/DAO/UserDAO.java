@@ -75,6 +75,8 @@ public class UserDAO {
         }
     }
 
+
+
     /** This method tries to find a user in the database
      *
      * @param userName The username of the user being queried
@@ -83,7 +85,7 @@ public class UserDAO {
      *
      * @return A User
      * */
-    public User query(String userName) throws DatabaseException {
+    public User queryUser(String userName) throws DatabaseException {
         User user;
         ResultSet rs = null;
         String sql = "SELECT * FROM Users WHERE UserName = ?;";

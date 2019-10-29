@@ -42,7 +42,7 @@ public class UserDAOTest {
         db.closeConnection(true);
     }
     @Test
-    public void addPass() throws Exception {
+    public void addUserPass() throws Exception {
         //We want to make sure add works
         //First lets create a User that we'll set to null. We'll use this to make sure what we put
         //in the database is actually there.
@@ -56,7 +56,7 @@ public class UserDAOTest {
 
             uDao.addUser(myUser);
             //So lets use a query method to get the User that we just put in back out
-            compareTest = uDao.query(myUser.getUserName());
+            compareTest = uDao.queryUser(myUser.getUserName());
             db.closeConnection(true);
         } catch (DatabaseException e) {
             db.closeConnection(false);
@@ -72,7 +72,7 @@ public class UserDAOTest {
     }
 
     @Test
-    public void addFail() throws Exception {
+    public void addUserFail() throws Exception {
         //lets do this test again but this time lets try to make it fail
 
         // NOTE: The correct way to test for an exception in Junit 5 is to use an assertThrows
@@ -108,7 +108,7 @@ public class UserDAOTest {
             UserDAO uDao = new UserDAO(conn);
             //and then get something back from our find. If the User is not in the database we
             //should have just changed our compareTest to a null object
-            compareTest = uDao.query(myUser.getUserName());
+            compareTest = uDao.queryUser(myUser.getUserName());
             db.closeConnection(true);
         } catch (DatabaseException e) {
             db.closeConnection(false);
@@ -116,5 +116,86 @@ public class UserDAOTest {
 
         //Now make sure that compareTest is indeed null
         assertNull(compareTest);
+    }
+
+    @Test
+    public void deleteUserPass() throws Exception {
+
+        User compareTest = null;
+
+        try {
+            Connection conn = db.openConnection();
+            UserDAO uDAO = new UserDAO(conn);
+            uDAO.addUser(myUser);
+
+            uDAO.deleteUser(myUser.getUserName());
+
+            compareTest = uDAO.queryUser(myUser.getUserName());
+            db.closeConnection(true);
+        } catch (DatabaseException e) {
+            db.closeConnection(false);
+        }
+
+        assertNull(compareTest);
+    }
+
+    @Test
+    public void deleteUserFail() throws Exception {
+
+        User compareTest = null;
+        try {
+            Connection conn = db.openConnection();
+            conn.setAutoCommit(false);
+            UserDAO uDAO = new UserDAO(conn);
+            uDAO.addUser(myUser);
+            uDAO.deleteUser("User");
+            compareTest = uDAO.queryUser(myUser.getUserName());
+            db.closeConnection(true);
+        } catch (DatabaseException e) {
+            db.closeConnection(false);
+        }
+        assertNotNull(compareTest);
+        assertEquals(myUser, compareTest);
+
+    }
+
+    @Test
+    public void queryUserPass() throws Exception {
+
+        User compareTest = null;
+
+        try {
+            //Let's get our connection and make a new DAO
+            Connection conn = db.openConnection();
+            UserDAO uDAO = new UserDAO(conn);
+
+            uDAO.addUser(myUser);
+
+            compareTest = uDAO.queryUser(myUser.getUserName());
+            db.closeConnection(true);
+        } catch (DatabaseException e) {
+            db.closeConnection(false);
+        }
+
+        assertNotNull(compareTest);
+
+        assertEquals(myUser, compareTest);
+
+    }
+
+    @Test
+    public void queryUserFail() throws Exception {
+        User wasFound = null;
+        try {
+            Connection conn = db.openConnection();
+            conn.setAutoCommit(false);
+            UserDAO uDAO = new UserDAO(conn);
+            wasFound = uDAO.queryUser(myUser.getUserName());
+
+            db.closeConnection(true);
+        } catch (DatabaseException e) {
+            db.closeConnection(false);
+        }
+        assertNull(wasFound);
     }
 }

@@ -85,7 +85,7 @@ public class EventDAO {
      *
      * @throws DatabaseException An error that occurs while trying to access Database
      * */
-    public void deleteUsersEvents(String userName) throws DatabaseException {
+    public void deleteAllEventsOfUser(String userName) throws DatabaseException {
         String sql = "DELETE FROM Events WHERE AssociatedUserName = ?";
         try (PreparedStatement stmt = myConnection.prepareStatement(sql)) {
             stmt.setString(1, userName);
@@ -104,7 +104,7 @@ public class EventDAO {
      *
      * @return Event model
      * */
-    public Event query(String eventID) throws DatabaseException {
+    public Event queryEvent(String eventID) throws DatabaseException {
         Event event;
         ResultSet rs = null;
         String sql = "SELECT * FROM Events WHERE EventID = ?;";
@@ -134,15 +134,15 @@ public class EventDAO {
         return null;
     }
 
-    /** This method tries to find all events in the database for a specific user
+    /** This method tries to find all events of all family members of a specific user
      *
      * @param userName The UserName of the user whose events are being queried for
      *
      * @throws DatabaseException An exception that occurs while accessing the database
      *
-     * @return All events for a specific user
+     * @return All events of all family members for a specific user
      * */
-    public ArrayList<Event> queryUsersEvents(String userName) throws DatabaseException {
+    public ArrayList<Event> queryAllEventsOfUser(String userName) throws DatabaseException {
         Event event;
         ArrayList<Event> events = new ArrayList<>();
         ResultSet rs = null;

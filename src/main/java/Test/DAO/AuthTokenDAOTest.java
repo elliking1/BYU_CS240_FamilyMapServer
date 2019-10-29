@@ -56,7 +56,7 @@ public class AuthTokenDAOTest {
 
             aDao.addToken(myAuthToken);;
             //So lets use a query method to get the AuthToken that we just put in back out
-            compareTest = aDao.query(myAuthToken.getToken());
+            compareTest = aDao.queryToken(myAuthToken.getToken());
             db.closeConnection(true);
         } catch (DatabaseException e) {
             db.closeConnection(false);
@@ -108,7 +108,7 @@ public class AuthTokenDAOTest {
             AuthTokenDAO aDao = new AuthTokenDAO(conn);
             //and then get something back from our find. If the User is not in the database we
             //should have just changed our compareTest to a null object
-            compareTest = aDao.query(myAuthToken.getToken());
+            compareTest = aDao.queryToken(myAuthToken.getToken());
             db.closeConnection(true);
         } catch (DatabaseException e) {
             db.closeConnection(false);
@@ -117,4 +117,85 @@ public class AuthTokenDAOTest {
         //Now make sure that compareTest is indeed null
         assertNull(compareTest);
     }
+
+    @Test
+    public void deleteTokenPass() throws Exception {
+        AuthToken compareTest = null;
+
+        try {
+            //Let's get our connection and make a new DAO
+            Connection conn = db.openConnection();
+            conn.setAutoCommit(false);
+            AuthTokenDAO aDao = new AuthTokenDAO(conn);
+
+            aDao.deleteToken(myAuthToken.getToken());
+
+            compareTest = aDao.queryToken(myAuthToken.getToken());
+            db.closeConnection(true);
+        } catch (DatabaseException e) {
+            db.closeConnection(false);
+        }
+
+        assertNull(compareTest);
+    }
+
+    @Test
+    public void deleteTokenFail() throws Exception {
+        AuthToken compareTest = null;
+        try {
+            Connection conn = db.openConnection();
+            conn.setAutoCommit(false);
+            AuthTokenDAO aDao = new AuthTokenDAO(conn);
+            aDao.addToken(myAuthToken);
+            aDao.deleteToken("Token");
+            compareTest = aDao.queryToken(myAuthToken.getToken());
+            db.closeConnection(true);
+        } catch (DatabaseException e) {
+            db.closeConnection(false);
+        }
+        assertNotNull(compareTest);
+        assertEquals(myAuthToken, compareTest);
+
+    }
+
+    @Test
+    public void queryTokenPass() throws Exception {
+
+        AuthToken compareTest = null;
+
+        try {
+            //Let's get our connection and make a new DAO
+            Connection conn = db.openConnection();
+            AuthTokenDAO aDAO = new AuthTokenDAO(conn);
+
+            aDAO.addToken(myAuthToken);
+
+            compareTest = aDAO.queryToken(myAuthToken.getToken());
+            db.closeConnection(true);
+        } catch (DatabaseException e) {
+            db.closeConnection(false);
+        }
+
+        assertNotNull(compareTest);
+
+        assertEquals(myAuthToken, compareTest);
+
+    }
+
+    @Test
+    public void queryTokenFail() throws Exception {
+        AuthToken wasFound = null;
+        try {
+            Connection conn = db.openConnection();
+            conn.setAutoCommit(false);
+            AuthTokenDAO aDao = new AuthTokenDAO(conn);
+            wasFound = aDao.queryToken(myAuthToken.getToken());
+
+            db.closeConnection(true);
+        } catch (DatabaseException e) {
+            db.closeConnection(false);
+        }
+        assertNull(wasFound);
+    }
+
 }
