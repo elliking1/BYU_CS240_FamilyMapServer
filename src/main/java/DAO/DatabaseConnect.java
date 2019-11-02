@@ -7,16 +7,16 @@ import java.sql.*;
  * This class connects to the database
  * @author Cameron Brown
  */
-public class Database {
+public class DatabaseConnect {
     /**
-     * Database connection
+     * The database connection
      */
     private Connection myConnection;
 
-    /** Empty constructor for Database
+    /** Empty constructor for DatabaseConnect
      *
      * */
-    public Database() {
+    public DatabaseConnect() {
 
     }
 

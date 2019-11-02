@@ -1,6 +1,6 @@
 package Test.DAO;
 
-import DAO.Database;
+import DAO.DatabaseConnect;
 import DAO.DatabaseException;
 import DAO.PersonDAO;
 import Model.Person;
@@ -8,13 +8,12 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import java.sql.Connection;
-import java.sql.SQLException;
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class PersonDAOTest {
-    private Database db;
+    private DatabaseConnect db;
     private Person myPerson;
 
     @BeforeEach
@@ -22,7 +21,7 @@ public class PersonDAOTest {
         //here we can set up any classes or variables we will need for the rest of our tests
 
         //lets create a new database
-        db = new Database();
+        db = new DatabaseConnect();
 
         //and a new person with random data
         myPerson = new Person("person1", "MyUserName", "Bob",

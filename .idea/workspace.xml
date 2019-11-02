@@ -5,18 +5,68 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="110685c6-2ae1-4c9f-9bd4-aa2406b31c0f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Handler/AllEventsHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Handler/AllPeopleHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Handler/ClearHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Handler/EventHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Handler/FileHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Handler/FillHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Handler/LoadHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Handler/LoginHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Handler/PersonHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Handler/RegisterHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_gson_gson_2_8_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/db.sqlite-journal" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Handler/HandlerParent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Handler/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Handler/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FamilyMapServer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/FamilyMapServer.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadocs/DAO/Database.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadocs/DAO/Database.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/DatabaseConnect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Handler/ClearHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Handler/ClearHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Handler/FileHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Handler/FileHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Handler/LoadHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Handler/LoadHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Handler/LoginHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Handler/LoginHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Handler/RegisterHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Handler/RegisterHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Handler/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Handler/FamilyMapServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/AuthToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/AuthToken.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Result/LoginResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Result/RegisterLoginResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Result/RegisterResult.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Result/StandardResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Result/StandardResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Service/ClearService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Service/ClearService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Service/LoginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Service/LoginService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Service/RegisterService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Service/RegisterService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Test/DAO/AuthTokenDAOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Test/DAO/AuthTokenDAOTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Test/DAO/EventDAOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Test/DAO/EventDAOTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Test/DAO/PersonDAOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Test/DAO/PersonDAOTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Test/DAO/UserDAOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Test/DAO/UserDAOTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DAO/AuthTokenDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DAO/AuthTokenDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DAO/Database.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DAO/DatabaseException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DAO/DatabaseException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DAO/EventDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DAO/EventDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DAO/PersonDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DAO/PersonDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DAO/UserDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DAO/UserDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Handler/Server.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/AuthToken.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/AuthToken.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/Event.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Event.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/Person.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Person.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Request/LoadRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Request/LoadRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Request/LoginRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Request/LoginRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Request/RegisterRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Request/RegisterRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Result/AllEventsResult.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Result/AllEventsResult.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Result/AllPeopleResult.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Result/AllPeopleResult.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Result/EventResult.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Result/EventResult.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Result/LoginResult.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Result/PersonResult.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Result/PersonResult.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Result/RegisterResult.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Result/StandardResult.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Result/StandardResult.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Service/AllEventsService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Service/AllEventsService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Service/AllPeopleService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Service/AllPeopleService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Service/ClearService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Service/ClearService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Service/EventService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Service/EventService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Service/FillService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Service/FillService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Service/LoadService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Service/LoadService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Service/LoginService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Service/LoginService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Service/PersonService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Service/PersonService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Service/RegisterService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Service/RegisterService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Test/DAO/AuthTokenDAOTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Test/DAO/AuthTokenDAOTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Test/DAO/EventDAOTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Test/DAO/EventDAOTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Test/DAO/PersonDAOTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Test/DAO/PersonDAOTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Test/DAO/UserDAOTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Test/DAO/UserDAOTest.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -152,7 +202,21 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.AuthTokenDAOTest">
+  <component name="RunManager" selected="Application.FamilyMapServer">
+    <configuration name="FamilyMapServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Handler.FamilyMapServer" />
+      <module name="FamilyMapServer" />
+      <option name="PROGRAM_PARAMETERS" value="8080" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Handler.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="AuthTokenDAOTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="FamilyMapServer" />
       <extension name="coverage">
@@ -198,22 +262,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PersonDAOTest.deleteRelativesOfPersonPass" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="FamilyMapServer" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Test.DAO.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Test.DAO" />
-      <option name="MAIN_CLASS_NAME" value="Test.DAO.PersonDAOTest" />
-      <option name="METHOD_NAME" value="deleteRelativesOfPersonPass" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="UserDAOTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="FamilyMapServer" />
       <extension name="coverage">
@@ -229,13 +277,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.FamilyMapServer" />
+      <item itemvalue="JUnit.AuthTokenDAOTest" />
+      <item itemvalue="JUnit.EventDAOTest" />
+      <item itemvalue="JUnit.PersonDAOTest" />
+      <item itemvalue="JUnit.UserDAOTest" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.FamilyMapServer" />
         <item itemvalue="JUnit.AuthTokenDAOTest" />
         <item itemvalue="JUnit.UserDAOTest" />
         <item itemvalue="JUnit.PersonDAOTest" />
         <item itemvalue="JUnit.EventDAOTest" />
-        <item itemvalue="JUnit.PersonDAOTest.deleteRelativesOfPersonPass" />
       </list>
     </recent_temporary>
   </component>
@@ -277,7 +332,9 @@
       <workItem from="1572380655771" duration="98000" />
       <workItem from="1572380782317" duration="105000" />
       <workItem from="1572380901998" duration="4503000" />
-      <workItem from="1572410701668" duration="6775000" />
+      <workItem from="1572410701668" duration="8983000" />
+      <workItem from="1572458251293" duration="13121000" />
+      <workItem from="1572564252305" duration="14546000" />
     </task>
     <servers />
   </component>

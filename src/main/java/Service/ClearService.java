@@ -1,6 +1,10 @@
 package Service;
 
+import DAO.DatabaseConnect;
+import DAO.DatabaseException;
 import Result.StandardResult;
+
+import java.sql.Connection;
 
 /**
  * This class deletes ALL data from the database.
@@ -20,8 +24,14 @@ public class ClearService {
      * @return Returns the success or failure of the clear operation
      * */
     public StandardResult clearDatabase() {
-
-        return null;
+        try {
+            DatabaseConnect dbConnect = new DatabaseConnect();
+            Connection myConnection = dbConnect.openConnection();
+            dbConnect.clearTables();
+            return new StandardResult("Clear succeeded.");
+        } catch (DatabaseException d) {
+            return new StandardResult("Internal server error");
+        }
     }
 
 

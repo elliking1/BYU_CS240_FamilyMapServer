@@ -1,7 +1,7 @@
 package Test.DAO;
 
 import DAO.AuthTokenDAO;
-import DAO.Database;
+import DAO.DatabaseConnect;
 import DAO.DatabaseException;
 import Model.AuthToken;
 import org.junit.jupiter.api.AfterEach;
@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
 public class AuthTokenDAOTest {
-    private Database db;
+    private DatabaseConnect db;
     private AuthToken myAuthToken;
 
     @BeforeEach
@@ -22,7 +22,7 @@ public class AuthTokenDAOTest {
         //here we can set up any classes or variables we will need for the rest of our tests
 
         //lets create a new database
-        db = new Database();
+        db = new DatabaseConnect();
 
         //and a new User with random data
         myAuthToken = new AuthToken("1234567", "MyUserName");

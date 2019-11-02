@@ -1,9 +1,10 @@
 package Result;
 /**
- * This class handles results for the Register API
+ * This class handles results for the Login API
  * @author Cameron Brown
  */
-public class RegisterResult extends StandardResult {
+public class RegisterLoginResult extends StandardResult {
+
     /** AuthToken for the user */
     private String authToken;
 
@@ -13,30 +14,30 @@ public class RegisterResult extends StandardResult {
     /** PersonID of the user */
     private String personID;
 
-    /** Empty constructor for RegisterResult
+    /** Empty constructor for RegisterLoginResult
      *
      * */
-    public RegisterResult() {
+    public RegisterLoginResult() {
 
     }
 
-    /** Constructor for RegisterResult Successes
+    /** Constructor for RegisterLoginResult Successes
      *
      * @param authToken AuthToken assigned to the user
      * @param personID PersonID of person assigned to AuthToken
      * @param userName UserName of user assigned to AuthToken
      * */
-    public RegisterResult(String authToken, String userName, String personID) {
+    public RegisterLoginResult(String authToken, String userName, String personID) {
         this.authToken = authToken;
         this.userName = userName;
         this.personID = personID;
     }
 
-    /** Constructor for RegisterRequest Failures
+    /** Constructor for RegisterLoginResult Failures
      *
-     * @param message Error Message
+     * @param message Error message
      * */
-    public RegisterResult(String message) {
+    public RegisterLoginResult(String message) {
         this.message = message;
     }
 

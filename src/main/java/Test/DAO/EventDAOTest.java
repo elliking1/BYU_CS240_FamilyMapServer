@@ -1,6 +1,6 @@
 package Test.DAO;
 
-import DAO.Database;
+import DAO.DatabaseConnect;
 import DAO.DatabaseException;
 import DAO.EventDAO;
 import Model.Event;
@@ -14,14 +14,14 @@ import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class EventDAOTest {
-    private Database db;
+    private DatabaseConnect db;
     private Event myEvent;
 
     @BeforeEach
     public void setUp() throws Exception {
         //here we can set up any classes or variables we will need for the rest of our tests
         //lets create a new database
-        db = new Database();
+        db = new DatabaseConnect();
         //and a new event with random data
         myEvent = new Event("Biking_123A", "Gale", "Gale123A",
                 10.3f, 10.3f, "Japan", "Ushiku",

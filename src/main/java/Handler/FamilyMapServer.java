@@ -5,9 +5,15 @@ import com.sun.net.httpserver.HttpServer;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 
-public class Server {
+public class FamilyMapServer {
     public static void main(String[] args) {
-
+        int port = Integer.parseInt(args[0]);
+        FamilyMapServer myServer = new FamilyMapServer();
+        try {
+            myServer.startServer(port);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void startServer(int port) throws IOException {

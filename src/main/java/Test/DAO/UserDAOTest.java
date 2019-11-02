@@ -1,6 +1,6 @@
 package Test.DAO;
 
-import DAO.Database;
+import DAO.DatabaseConnect;
 import DAO.DatabaseException;
 import DAO.UserDAO;
 import Model.User;
@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
 public class UserDAOTest {
-    private Database db;
+    private DatabaseConnect db;
     private User myUser;
 
     @BeforeEach
@@ -22,7 +22,7 @@ public class UserDAOTest {
         //here we can set up any classes or variables we will need for the rest of our tests
 
         //lets create a new database
-        db = new Database();
+        db = new DatabaseConnect();
 
         //and a new User with random data
         myUser = new User("MyUserName", "password", "bob_barker@priceisright.com", "Bob", "Barker", "m", "person1");

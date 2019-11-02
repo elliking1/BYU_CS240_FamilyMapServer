@@ -1,4 +1,7 @@
 package Model;
+
+import java.util.UUID;
+
 /**
  * This class represents a person
  * @author Cameron Brown
@@ -46,7 +49,8 @@ public class Person {
      * @param motherID PersonID of this person's mother
      * @param spouseID PersonID of this person's spouse
      * */
-    public Person(String personID, String associatedUserName, String firstName, String lastName, String gender, String fatherID, String motherID, String spouseID) {
+    public Person(String personID, String associatedUserName, String firstName, String lastName,
+                  String gender, String fatherID, String motherID, String spouseID) {
         this.personID = personID;
         this.associatedUserName = associatedUserName;
         this.firstName = firstName;
@@ -55,6 +59,14 @@ public class Person {
         this.fatherID = fatherID;
         this.motherID = motherID;
         this.spouseID = spouseID;
+    }
+
+    public Person(String userName, String firstName, String lastName, String gender) {
+        this.personID = UUID.randomUUID().toString();
+        this.associatedUserName = userName;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.gender = gender;
     }
 
     public String getPersonID() {

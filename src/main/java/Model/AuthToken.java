@@ -1,5 +1,7 @@
 package Model;
 
+import java.util.UUID;
+
 /**
  * This class represents an AuthToken that is paired with a user
  * @author Cameron Brown
@@ -18,7 +20,16 @@ public class AuthToken {
 
     }
 
-    /** Non-empty constructor for AuthToken
+    /** UserName parameter constructor for AuthToken
+     *
+     * @param userName UserName of User Associated with AuthToken
+     * */
+    public AuthToken(String userName) {
+        this.token = UUID.randomUUID().toString();;
+        this.userName = userName;
+    }
+
+    /** All Parameters constructor for AuthToken
      *
      * @param token AuthToken object
      * @param userName UserName of User Associated with AuthToken
