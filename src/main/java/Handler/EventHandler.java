@@ -1,11 +1,20 @@
 package Handler;
 
+import Result.EventResult;
+import Result.StandardResult;
+import Service.EventService;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.sun.net.httpserver.Headers;
 import com.sun.net.httpserver.HttpExchange;
-import com.sun.net.httpserver.HttpHandler;
 
+import java.io.BufferedWriter;
 import java.io.IOException;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
 
-public class EventHandler implements HttpHandler {
+public class EventHandler extends HandlerParent {
     /**
      * Handle the given request and generate an appropriate response.
      * See {@link HttpExchange} for a description of the steps
@@ -17,6 +26,61 @@ public class EventHandler implements HttpHandler {
      */
     @Override
     public void handle(HttpExchange exchange) throws IOException {
+        // HTTP GET Request/Response Steps
+        // 1. Handler's handle method is called and passed an HttpExchange instance
+        // 2. Process request (use HttpExchange to get request method, URI, headers, etc.
+        // 3. Send response code (exchange.sendResponseHeaders(responseCode, responseLength))
+        // 4. Get output stream (exchange.getResponseBody())
+        // 5. Write response to stream
+        // 6. Close the exchange (exchange.close())
 
+        try {
+            // Only allow GET Requests
+            if (exchange.getRequestMethod().toUpperCase().equals("GET")) {
+                Headers reqHeaders = exchange.getRequestHeaders();
+                String urlPath = exchange.getRequestURI().toString();
+                exchange.sendResponseHeaders(HttpURLConnection.HTTP_OK, 0);
+                if (reqHeaders.containsKey("Authorization")) {
+                    String authToken = reqHeaders.getFirst("Authorization");
+                    StringBuilder event = new StringBuilder();
+                    for(int i = 7; i < urlPath.length(); i++) {
+                        event.append(urlPath.charAt(i));
+                    }
+                    String eventID = event.toString();
+                    EventService serviceObject = new EventService();
+                    EventResult newResult = serviceObject.getEvent(eventID, authToken);
+                    OutputStream respBody = exchange.getResponseBody();
+                    generate(newResult, respBody);
+                    respBody.flush();
+                    respBody.close();
+                }
+                else {
+                    // We did not get an auth token, so we return a "not authorized"
+                    // status code to the client.
+                    exchange.sendResponseHeaders(HttpURLConnection.HTTP_UNAUTHORIZED, 0);
+                }
+            }
+            // Expected a GET, but got something else
+            else {
+                exchange.sendResponseHeaders(HttpURLConnection.HTTP_BAD_REQUEST, 0);
+            }
+        } catch (IOException io) {
+            exchange.sendResponseHeaders(HttpURLConnection.HTTP_INTERNAL_ERROR, 0);
+            io.printStackTrace();
+        }
+        exchange.getResponseBody().close();
+    }
+
+    @Override
+    protected void generate(StandardResult result, OutputStream output) throws IOException {
+        Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
+        String jsonString = gson.toJson(result);
+
+        OutputStreamWriter outputWriter = new OutputStreamWriter(output);
+        BufferedWriter bufferedWriter = new BufferedWriter(outputWriter);
+        bufferedWriter.write(jsonString);
+        bufferedWriter.flush();
+
+        System.out.println(jsonString);
     }
 }

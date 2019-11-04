@@ -1,7 +1,11 @@
 package Service;
 
+import DAO.DatabaseConnect;
+import DAO.DatabaseException;
 import Request.LoadRequest;
 import Result.StandardResult;
+
+import java.sql.Connection;
 
 /**
  * This class clears all data from the database and then loads
@@ -23,7 +27,21 @@ public class LoadService {
      * @param request Takes data to be loaded into database
      * */
     public StandardResult load(LoadRequest request) {
+        try {
+            DatabaseConnect dbConnect = new DatabaseConnect();
+            dbConnect.openConnection();
+            dbConnect.clearTables();
+            int numUsers = 0;
+            int numPersons = 0;
+            int numEvents = 0;
 
-        return null;
+            // TODO: Add all the data to the database.
+
+            dbConnect.closeConnection(true);
+            return new StandardResult("Successfully added " + numUsers + " users, " + numPersons +
+                                      " persons, and " + numEvents + " events to the database.");
+        } catch (DatabaseException d) {
+            return new StandardResult("Internal server error");
+        }
     }
 }

@@ -26,8 +26,9 @@ public class ClearService {
     public StandardResult clearDatabase() {
         try {
             DatabaseConnect dbConnect = new DatabaseConnect();
-            Connection myConnection = dbConnect.openConnection();
+            dbConnect.openConnection();
             dbConnect.clearTables();
+            dbConnect.closeConnection(true);
             return new StandardResult("Clear succeeded.");
         } catch (DatabaseException d) {
             return new StandardResult("Internal server error");

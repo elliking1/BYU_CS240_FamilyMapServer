@@ -29,7 +29,7 @@ public class EventResult extends StandardResult {
     private String eventType;
 
     /** Year the event occurred */
-    private String year;
+    private int year;
 
     /** Empty constructor for EventResult
      *
@@ -49,7 +49,7 @@ public class EventResult extends StandardResult {
      * @param eventType The type of event (i.e. birth, death, baptism, wedding, etc.)
      * @param year Year event occurred
      * */
-    public EventResult(String associatedUserName, String eventID, String personID, double latitude, double longitude, String country, String city, String eventType, String year) {
+    public EventResult(String associatedUserName, String eventID, String personID, double latitude, double longitude, String country, String city, String eventType, int year) {
         this.associatedUserName = associatedUserName;
         EventID = eventID;
         this.personID = personID;
@@ -133,11 +133,11 @@ public class EventResult extends StandardResult {
         this.eventType = eventType;
     }
 
-    public String getYear() {
+    public int getYear() {
         return year;
     }
 
-    public void setYear(String year) {
+    public void setYear(int year) {
         this.year = year;
     }
 

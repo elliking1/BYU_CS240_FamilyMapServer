@@ -1,8 +1,5 @@
-package Test.DAO;
+package DAO;
 
-import DAO.DatabaseConnect;
-import DAO.DatabaseException;
-import DAO.UserDAO;
 import Model.User;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;

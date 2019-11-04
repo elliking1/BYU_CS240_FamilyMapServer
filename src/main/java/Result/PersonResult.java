@@ -1,4 +1,7 @@
 package Result;
+
+import java.util.Objects;
+
 /**
  * This class handles results for returning a single person object with specified ID
  * @author Cameron Brown
@@ -127,6 +130,21 @@ public class PersonResult extends StandardResult {
 
     public void setSpouseID(String spouseID) {
         this.spouseID = spouseID;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        PersonResult that = (PersonResult) o;
+        return associatedUserName.equals(that.associatedUserName) &&
+                personID.equals(that.personID) &&
+                firstName.equals(that.firstName) &&
+                lastName.equals(that.lastName) &&
+                gender.equals(that.gender) &&
+                Objects.equals(fatherID, that.fatherID) &&
+                Objects.equals(motherID, that.motherID) &&
+                Objects.equals(spouseID, that.spouseID);
     }
 
 }

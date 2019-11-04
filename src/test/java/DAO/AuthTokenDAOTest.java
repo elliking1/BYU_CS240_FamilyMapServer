@@ -1,8 +1,5 @@
-package Test.DAO;
+package DAO;
 
-import DAO.AuthTokenDAO;
-import DAO.DatabaseConnect;
-import DAO.DatabaseException;
 import Model.AuthToken;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -54,7 +51,7 @@ public class AuthTokenDAOTest {
             conn.setAutoCommit(false);
             AuthTokenDAO aDao = new AuthTokenDAO(conn);
 
-            aDao.addToken(myAuthToken);;
+            aDao.addToken(myAuthToken);
             //So lets use a query method to get the AuthToken that we just put in back out
             compareTest = aDao.queryToken(myAuthToken.getToken());
             db.closeConnection(true);
@@ -204,7 +201,7 @@ public class AuthTokenDAOTest {
         // to the database and make sure they were both deleted.
         AuthToken compareTest = null;
         AuthToken compareTestTwo = null;
-        AuthToken AuthTokenTwo = null;
+        AuthToken AuthTokenTwo;
         try {
             Connection conn = db.openConnection();
             conn.setAutoCommit(false);

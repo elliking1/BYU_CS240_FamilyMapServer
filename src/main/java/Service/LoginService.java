@@ -8,7 +8,6 @@ import Model.AuthToken;
 import Model.User;
 import Request.LoginRequest;
 import Result.RegisterLoginResult;
-import java.util.UUID;
 
 import java.sql.Connection;
 
@@ -47,7 +46,7 @@ public class LoginService {
                 return new RegisterLoginResult(myToken.getToken(), reqUser.getUserName(), reqUser.getPersonID());
             }
             else {
-                return new RegisterLoginResult("Error: Failed to login. Login information was incorrect.");
+                return new RegisterLoginResult("error - Failed to login. Login information was incorrect.");
             }
         } catch (DatabaseException d) {
             return new RegisterLoginResult("Internal server error");

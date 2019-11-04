@@ -1,5 +1,7 @@
 package Result;
 
+import com.google.gson.annotations.Expose;
+
 /**
  * This class handles all standard results that don't require a unique implementation
  * and serves as parent class for results that do need a unique implementation.
@@ -7,6 +9,7 @@ package Result;
  */
 public class StandardResult {
     /** Success/Error Message */
+    @Expose
     protected String message;
 
     /** Empty constructor for LoadResult

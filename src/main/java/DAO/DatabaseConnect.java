@@ -98,7 +98,7 @@ public class DatabaseConnect {
             String sql =
                     "CREATE TABLE IF NOT EXISTS Events " +
                     "(" +
-                        "EventID VARCHAR(255) NOT NULL," +
+                        "EventID VARCHAR(255) NOT NULL UNIQUE," +
                         "AssociatedUserName VARCHAR(255) NOT NULL," +
                         "PersonID VARCHAR(255) NOT NULL," +
                         "Latitude DECIMAL(9, 6) NOT NULL," +
@@ -124,7 +124,7 @@ public class DatabaseConnect {
 
                     "CREATE TABLE IF NOT EXISTS Persons " +
                     "(" +
-                        "PersonID VARCHAR(255) NOT NULL," +
+                        "PersonID VARCHAR(255) NOT NULL UNIQUE," +
                         "AssociatedUserName VARCHAR(255)," +
                         "FirstName VARCHAR(255) NOT NULL," +
                         "LastName VARCHAR(255) NOT NULL," +
@@ -137,7 +137,7 @@ public class DatabaseConnect {
 
                     "CREATE TABLE IF NOT EXISTS AuthTokens" +
                     "(" +
-                        "Token VARCHAR(255) NOT NULL," +
+                        "Token VARCHAR(255) NOT NULL UNIQUE," +
                         "AssociatedUserName VARCHAR(255) NOT NULL," +
                         "PRIMARY KEY (Token)" +
                     ");";
