@@ -5,41 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="110685c6-2ae1-4c9f-9bd4-aa2406b31c0f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/Service/EventServiceTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Service/PersonServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite-journal" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite-journal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/DatabaseConnect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/DatabaseConnect.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Handler/EventHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Handler/EventHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Handler/FamilyMapServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Handler/FamilyMapServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Handler/FillHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Handler/FillHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Handler/HandlerParent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Handler/HandlerParent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Handler/PersonHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Handler/PersonHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Result/EventResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Result/EventResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Result/PersonResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Result/PersonResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Result/StandardResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Result/StandardResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Service/ClearService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Service/ClearService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Service/EventService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Service/EventService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Service/LoadService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Service/LoadService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Service/LoginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Service/LoginService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Service/PersonService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Service/PersonService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Test/DAO/AuthTokenDAOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/DAO/AuthTokenDAOTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Test/DAO/EventDAOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/DAO/EventDAOTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Test/DAO/PersonDAOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/DAO/PersonDAOTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Test/DAO/UserDAOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/DAO/UserDAOTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Handler/EventHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Handler/EventHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Handler/FillHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Handler/FillHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Handler/LoadHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Handler/LoadHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Handler/PersonHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Handler/PersonHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Service/ClearService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Service/ClearService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Service/LoadService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Service/LoadService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Service/LoginService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Service/LoginService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Service/PersonService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Service/PersonService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Test/DAO/AuthTokenDAOTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Test/DAO/EventDAOTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Test/DAO/PersonDAOTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Test/DAO/UserDAOTest.class" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Service/ClearService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Service/LoadServiceTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -315,7 +282,7 @@
       <workItem from="1572742317650" duration="1486000" />
       <workItem from="1572754896031" duration="2575000" />
       <workItem from="1572808613440" duration="9675000" />
-      <workItem from="1572887036906" duration="9674000" />
+      <workItem from="1572887036906" duration="9854000" />
     </task>
     <servers />
   </component>
