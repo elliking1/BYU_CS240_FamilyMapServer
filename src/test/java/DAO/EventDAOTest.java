@@ -169,7 +169,7 @@ public class EventDAOTest {
                     64.1f, -21.8f, "Iceland", "Reykjavik", "Birth", 2001);
 
             eDao.addEvent(eventTwo);
-            eDao.deleteAllEventsOfUser(myEvent.getAssociatedUserName());
+            eDao.deleteAllEventsOfUser(myEvent.getAssociatedUsername());
 
             compareTest = eDao.queryEvent(myEvent.getEventID());
             compareTestTwo = eDao.queryEvent(eventTwo.getEventID());
@@ -257,7 +257,7 @@ public class EventDAOTest {
             Event eventTwo = new Event("Event2", "Gale", "person1",
                     64.1f, -21.8f, "Iceland", "Reykjavik", "Birth", 2001);
             eDao.addEvent(eventTwo);
-            peopleList = eDao.queryAllEventsOfUser(myEvent.getAssociatedUserName());
+            peopleList = eDao.queryAllEventsOfUser(myEvent.getAssociatedUsername());
 
             db.closeConnection(true);
         } catch (DatabaseException e) {

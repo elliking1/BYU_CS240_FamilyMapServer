@@ -1,0 +1,19 @@
+INSERT INTO Persons(PersonID, AssociatedUserName, FirstName, LastName, Gender, FatherID, MotherID, SpouseID) VALUES("p1","u1","barney","stinson", "m","p2", "p3","p4");
+INSERT INTO Persons(PersonID, AssociatedUserName, FirstName, LastName, Gender, FatherID, MotherID, SpouseID) VALUES("p2","u1","bob","barker", "m");
+INSERT INTO Persons(PersonID, AssociatedUserName, FirstName, LastName, Gender, FatherID, MotherID, SpouseID) VALUES("p3","u1","mom","barker", "f");
+INSERT INTO Persons(PersonID, AssociatedUserName, FirstName, LastName, Gender, FatherID, MotherID, SpouseID) VALUES("p4","u1","robin","scherbotsky", "f");
+
+INSERT INTO Events(EventID, AssociatedUserName, PersonID, Latitude, Longitude, Country, City, EventType, Year) VALUES("e1", "u1", "p1",64.1, -21.8, "Iceland", "Reykjavik", "Birth", 1976);
+INSERT INTO Events(EventID, AssociatedUserName, PersonID, Latitude, Longitude, Country, City, EventType, Year) VALUES("e2", "u1", "p1",64.0, -21.8, "Iceland", "Reykjavik", "Death", 2067);
+INSERT INTO Events(EventID, AssociatedUserName, PersonID, Latitude, Longitude, Country, City, EventType, Year) VALUES("e3", "u1", "p2",64.1, -21.8, "Iceland", "Reykjavik", "Birth", 1957);
+INSERT INTO Events(EventID, AssociatedUserName, PersonID, Latitude, Longitude, Country, City, EventType, Year) VALUES("e4", "u2", "p5",64.1, -21.8, "Iceland", "Reykjavik", "Birth", 1984);
+
+INSERT INTO AuthTokens(Token, AssociatedUserName) VALUES("t1","u1");
+INSERT INTO AuthTokens(Token, AssociatedUserName) VALUES("t2","u1");
+INSERT INTO AuthTokens(Token, AssociatedUserName) VALUES("t3","u1");
+INSERT INTO AuthTokens(Token, AssociatedUserName) VALUES("t4","u2");
+
+INSERT INTO Users(UserName, Password, Email, FirstName, LastName, Gender, PersonID) VALUES("");
+INSERT INTO Users(UserName, Password, Email, FirstName, LastName, Gender, PersonID) VALUES("");
+INSERT INTO Users(UserName, Password, Email, FirstName, LastName, Gender, PersonID) VALUES("");
+INSERT INTO Users(UserName, Password, Email, FirstName, LastName, Gender, PersonID) VALUES("");

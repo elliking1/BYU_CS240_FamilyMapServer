@@ -5,10 +5,10 @@ package Model;
  */
 public class Event {
     /** EventID */
-    private String EventID;
+    private String eventID;
 
     /** UserName of person that this event belongs to */
-    private String associatedUserName;
+    private String associatedUsername;
 
     /** PersonID of person this event belongs to */
     private String personID;
@@ -41,7 +41,7 @@ public class Event {
     /** Non-empty constructor for Event
      *
      * @param eventID Unique identifier of the event
-     * @param associatedUserName UserName of user that the event belongs to
+     * @param associatedUsername UserName of user that the event belongs to
      * @param personID PersonID of User event belongs to
      * @param latitude Latitude of where the event was
      * @param longitude Longitude of where the event was
@@ -50,9 +50,9 @@ public class Event {
      * @param eventType The type of event (i.e. birth, death, baptism, wedding, etc.)
      * @param year Year event occurred
      * */
-    public Event(String eventID, String associatedUserName, String personID, double latitude, double longitude, String country, String city, String eventType, int year) {
-        EventID = eventID;
-        this.associatedUserName = associatedUserName;
+    public Event(String eventID, String associatedUsername, String personID, double latitude, double longitude, String country, String city, String eventType, int year) {
+        this.eventID = eventID;
+        this.associatedUsername = associatedUsername;
         this.personID = personID;
         this.latitude = latitude;
         this.longitude = longitude;
@@ -63,19 +63,19 @@ public class Event {
     }
 
     public String getEventID() {
-        return EventID;
+        return eventID;
     }
 
     public void setEventID(String eventID) {
-        EventID = eventID;
+        this.eventID = eventID;
     }
 
-    public String getAssociatedUserName() {
-        return associatedUserName;
+    public String getAssociatedUsername() {
+        return associatedUsername;
     }
 
-    public void setAssociatedUserName(String associatedUserName) {
-        this.associatedUserName = associatedUserName;
+    public void setAssociatedUsername(String associatedUsername) {
+        this.associatedUsername = associatedUsername;
     }
 
     public String getPersonID() {
@@ -141,7 +141,7 @@ public class Event {
         if (o instanceof Event) {
             Event oEvent = (Event) o;
             return oEvent.getEventID().equals(getEventID()) &&
-                    oEvent.getAssociatedUserName().equals(getAssociatedUserName()) &&
+                    oEvent.getAssociatedUsername().equals(getAssociatedUsername()) &&
                     oEvent.getPersonID().equals(getPersonID()) &&
                     oEvent.getLatitude() == (getLatitude()) &&
                     oEvent.getLongitude() == (getLongitude()) &&

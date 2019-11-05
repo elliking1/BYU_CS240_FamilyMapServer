@@ -2,16 +2,16 @@ package Result;
 
 import Model.Event;
 
+import java.util.ArrayList;
+
 /**
  * This class handles the result of returning all events for all family members of current user
  * @author Cameron Brown
  */
 public class AllEventsResult extends StandardResult {
     /** Array of Event Objects */
-    private Event[] events;
+    private ArrayList<Event> events;
 
-    /** Error message */
-    private String message;
 
     /** Empty constructor for AllEventsResult
      *
@@ -24,7 +24,7 @@ public class AllEventsResult extends StandardResult {
      *
      * @param events List of events that need to be returned
      * */
-    public AllEventsResult(Event[] events) {
+    public AllEventsResult(ArrayList<Event> events) {
         this.events = events;
     }
 
@@ -36,19 +36,12 @@ public class AllEventsResult extends StandardResult {
         this.message = message;
     }
 
-    public Event[] getEvents() {
+    public ArrayList<Event> getEvents() {
         return events;
     }
 
-    public void setEvents(Event[] events) {
+    public void setEvents(ArrayList<Event> events) {
         this.events = events;
     }
 
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
 }

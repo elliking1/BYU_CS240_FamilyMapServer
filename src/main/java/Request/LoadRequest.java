@@ -18,7 +18,7 @@ public class LoadRequest {
     /** List of Events to be loaded into Database */
     private Event[] events;
 
-    /** Empty constructur for LoadRequest
+    /** Empty constructor for LoadRequest
      *
      * */
     public LoadRequest() {

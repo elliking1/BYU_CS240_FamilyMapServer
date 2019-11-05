@@ -1,7 +1,9 @@
 package Service;
 
-import DAO.DatabaseConnect;
-import DAO.DatabaseException;
+import DAO.*;
+import Model.Event;
+import Model.Person;
+import Model.User;
 import Request.LoadRequest;
 import Result.StandardResult;
 
@@ -27,20 +29,51 @@ public class LoadService {
      * @param request Takes data to be loaded into database
      * */
     public StandardResult load(LoadRequest request) {
+        DatabaseConnect dbConnect = new DatabaseConnect();
         try {
-            DatabaseConnect dbConnect = new DatabaseConnect();
-            dbConnect.openConnection();
+            Connection conn = dbConnect.openConnection();
             dbConnect.clearTables();
             int numUsers = 0;
             int numPersons = 0;
             int numEvents = 0;
 
-            // TODO: Add all the data to the database.
+            UserDAO userDAO = new UserDAO(conn);
+            PersonDAO personDAO = new PersonDAO(conn);
+            EventDAO eventDAO = new EventDAO(conn);
 
+            User[] users = request.getUsers();
+            Person[] people = request.getPersons();
+            Event[] events = request.getEvents();
+
+            for(int i = 0; i < users.length; i++) {
+                System.out.println(users[i].getUserName());
+                userDAO.addUser(users[i]);
+                numUsers++;
+            }
+
+            for(int i = 0; i < people.length; i++) {
+                System.out.println(people[i].getPersonID());
+                personDAO.addPerson(people[i]);
+                numPersons++;
+            }
+
+            for(int i = 0; i < events.length; i++) {
+                System.out.println(events[i].getEventID());
+                eventDAO.addEvent(events[i]);
+                numEvents++;
+            }
+            System.out.println("Past Events");
+
+            // TODO: Return error for invalid request data
             dbConnect.closeConnection(true);
             return new StandardResult("Successfully added " + numUsers + " users, " + numPersons +
                                       " persons, and " + numEvents + " events to the database.");
         } catch (DatabaseException d) {
+            try {
+                dbConnect.closeConnection(false);
+            } catch (DatabaseException b) {
+                b.printStackTrace();
+            }
             return new StandardResult("Internal server error");
         }
     }

@@ -2,13 +2,15 @@ package Result;
 
 import Model.Person;
 
+import java.util.ArrayList;
+
 /**
  * This class handles the result of returning all family members of current user
  * @author Cameron Brown
  */
 public class AllPeopleResult extends StandardResult {
     /** Array of Person Objects */
-    private Person[] persons;
+    private ArrayList<Person> persons;
 
     /** Empty constructor for AllPeopleResult
      *
@@ -21,7 +23,7 @@ public class AllPeopleResult extends StandardResult {
      *
      * @param persons List of people to return
      * */
-    public AllPeopleResult(Person[] persons) {
+    public AllPeopleResult(ArrayList<Person> persons) {
         this.persons = persons;
     }
 
@@ -31,5 +33,13 @@ public class AllPeopleResult extends StandardResult {
      * */
     public AllPeopleResult(String message) {
         this.message = message;
+    }
+
+    public ArrayList<Person> getPersons() {
+        return persons;
+    }
+
+    public void setPersons(ArrayList<Person> persons) {
+        this.persons = persons;
     }
 }

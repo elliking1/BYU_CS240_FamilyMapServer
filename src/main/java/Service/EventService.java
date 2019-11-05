@@ -41,11 +41,11 @@ public class EventService {
                 return new EventResult("error - Invalid eventID parameter");
             }
 
-            if(!reqEvent.getAssociatedUserName().equals(myToken.getUserName())) {
+            if(!reqEvent.getAssociatedUsername().equals(myToken.getUserName())) {
                 return new EventResult("error - Requested event does not belong to this user");
             }
 
-            return new EventResult(reqEvent.getAssociatedUserName(), eventID, reqEvent.getPersonID(), reqEvent.getLatitude(),
+            return new EventResult(reqEvent.getAssociatedUsername(), eventID, reqEvent.getPersonID(), reqEvent.getLatitude(),
                     reqEvent.getLongitude(), reqEvent.getCountry(), reqEvent.getCity(),
                     reqEvent.getEventType(), reqEvent.getYear());
 

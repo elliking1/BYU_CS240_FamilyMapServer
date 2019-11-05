@@ -50,6 +50,8 @@ public class RegisterService {
                 AuthTokenDAO authTokenDAO = new AuthTokenDAO(myConnection);
                 AuthToken newToken = new AuthToken(newUser.getUserName());
                 authTokenDAO.addToken(newToken);
+
+                // TODO: Generate 4 generations of ancestor data for user
                 return new RegisterLoginResult(newToken.getToken(), newUser.getUserName(), newUser.getPersonID());
             } catch (DatabaseException wrongInfo) {
                 return new RegisterLoginResult("Error: Request property missing or has invalid value");

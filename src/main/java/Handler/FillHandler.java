@@ -2,7 +2,6 @@ package Handler;
 
 import Result.StandardResult;
 import Service.FillService;
-import com.sun.net.httpserver.Headers;
 import com.sun.net.httpserver.HttpExchange;
 
 import java.io.IOException;
@@ -34,7 +33,6 @@ public class FillHandler extends HandlerParent {
         try {
             // Only allow POST Requests
             if (exchange.getRequestMethod().toUpperCase().equals("POST")) {
-                Headers reqHeaders = exchange.getRequestHeaders();
                 InputStream reqBody = exchange.getRequestBody();
                 String reqData = readString(reqBody);
 
@@ -46,22 +44,18 @@ public class FillHandler extends HandlerParent {
                     if(urlPath.charAt(i) != '/') {
                         usr.append(urlPath.charAt(i));
                     }
-                    else {
+                    else if(i + 1 < urlPath.length()) {
                         generations = urlPath.charAt(i+1);
                         break;
                     }
                 }
+                if(generations == 0) {
+                    generations = 4;
+                }
                 System.out.println(reqData);
                 String userName = usr.toString();
-
-                StandardResult newResult;
                 FillService serviceObject = new FillService();
-                if(generations == 0) {
-                    newResult = serviceObject.fillDatabase(userName);
-                }
-                else {
-                    newResult = serviceObject.fillDatabase(userName, generations);
-                }
+                StandardResult newResult = serviceObject.fillDatabase(userName, generations);
 
                 exchange.sendResponseHeaders(HttpURLConnection.HTTP_OK, 0);
                 OutputStream respBody = exchange.getResponseBody();

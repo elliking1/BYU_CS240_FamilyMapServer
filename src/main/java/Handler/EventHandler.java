@@ -1,7 +1,9 @@
 package Handler;
 
+import Result.AllEventsResult;
 import Result.EventResult;
 import Result.StandardResult;
+import Service.AllEventsService;
 import Service.EventService;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -42,17 +44,29 @@ public class EventHandler extends HandlerParent {
                 exchange.sendResponseHeaders(HttpURLConnection.HTTP_OK, 0);
                 if (reqHeaders.containsKey("Authorization")) {
                     String authToken = reqHeaders.getFirst("Authorization");
-                    StringBuilder event = new StringBuilder();
-                    for(int i = 7; i < urlPath.length(); i++) {
-                        event.append(urlPath.charAt(i));
+
+                    if(urlPath.length() < 8) {
+                        AllEventsService serviceObject = new AllEventsService();
+                        AllEventsResult newResult = serviceObject.getAllEvents(authToken);
+                        OutputStream respBody = exchange.getResponseBody();
+                        generate(newResult, respBody);
+                        respBody.flush();
+                        respBody.close();
                     }
-                    String eventID = event.toString();
-                    EventService serviceObject = new EventService();
-                    EventResult newResult = serviceObject.getEvent(eventID, authToken);
-                    OutputStream respBody = exchange.getResponseBody();
-                    generate(newResult, respBody);
-                    respBody.flush();
-                    respBody.close();
+                    else {
+                        StringBuilder event = new StringBuilder();
+                        for (int i = 7; i < urlPath.length(); i++) {
+                            event.append(urlPath.charAt(i));
+                        }
+                        String eventID = event.toString();
+                        EventService serviceObject = new EventService();
+                        EventResult newResult = serviceObject.getEvent(eventID, authToken);
+                        OutputStream respBody = exchange.getResponseBody();
+                        generate(newResult, respBody);
+                        respBody.flush();
+                        respBody.close();
+                    }
+
                 }
                 else {
                     // We did not get an auth token, so we return a "not authorized"
@@ -73,14 +87,19 @@ public class EventHandler extends HandlerParent {
 
     @Override
     protected void generate(StandardResult result, OutputStream output) throws IOException {
-        Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
-        String jsonString = gson.toJson(result);
+        if (result.getMessage() != null) {
+            Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
+            String jsonString = gson.toJson(result);
 
-        OutputStreamWriter outputWriter = new OutputStreamWriter(output);
-        BufferedWriter bufferedWriter = new BufferedWriter(outputWriter);
-        bufferedWriter.write(jsonString);
-        bufferedWriter.flush();
+            OutputStreamWriter outputWriter = new OutputStreamWriter(output);
+            BufferedWriter bufferedWriter = new BufferedWriter(outputWriter);
+            bufferedWriter.write(jsonString);
+            bufferedWriter.flush();
 
-        System.out.println(jsonString);
+            System.out.println(jsonString);
+        } else {
+            super.generate(result, output);
+        }
+
     }
 }

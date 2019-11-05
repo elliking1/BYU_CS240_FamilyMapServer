@@ -44,7 +44,7 @@ public class EventDAO {
             //to fill in and give it a proper value. The first argument corresponds to the first
             //question mark found in our sql String
             stmt.setString(1, newEvent.getEventID());
-            stmt.setString(2, newEvent.getAssociatedUserName());
+            stmt.setString(2, newEvent.getAssociatedUsername());
             stmt.setString(3, newEvent.getPersonID());
             stmt.setDouble(4, newEvent.getLatitude());
             stmt.setDouble(5, newEvent.getLongitude());

@@ -1,6 +1,8 @@
 package Handler;
 
+import Result.AllPeopleResult;
 import Result.PersonResult;
+import Service.AllPeopleService;
 import Service.PersonService;
 import com.sun.net.httpserver.Headers;
 import com.sun.net.httpserver.HttpExchange;
@@ -37,18 +39,28 @@ public class PersonHandler extends HandlerParent {
                 exchange.sendResponseHeaders(HttpURLConnection.HTTP_OK, 0);
                 if (reqHeaders.containsKey("Authorization")) {
                     String authToken = reqHeaders.getFirst("Authorization");
-                    System.out.println(authToken);
-                    StringBuilder person = new StringBuilder();
-                    for(int i = 8; i < urlPath.length(); i++) {
-                        person.append(urlPath.charAt(i));
+
+                    if(urlPath.length() < 9){
+                        AllPeopleService serviceObject = new AllPeopleService();
+                        AllPeopleResult newResult = serviceObject.getAllPeople(authToken);
+                        OutputStream respBody = exchange.getResponseBody();
+                        generate(newResult, respBody);
+                        respBody.flush();
+                        respBody.close();
                     }
-                    String personID = person.toString();
-                    PersonService serviceObject = new PersonService();
-                    PersonResult newResult = serviceObject.getPerson(personID, authToken);
-                    OutputStream respBody = exchange.getResponseBody();
-                    generate(newResult, respBody);
-                    respBody.flush();
-                    respBody.close();
+                    else {
+                        StringBuilder person = new StringBuilder();
+                        for (int i = 8; i < urlPath.length(); i++) {
+                            person.append(urlPath.charAt(i));
+                        }
+                        String personID = person.toString();
+                        PersonService serviceObject = new PersonService();
+                        PersonResult newResult = serviceObject.getPerson(personID, authToken);
+                        OutputStream respBody = exchange.getResponseBody();
+                        generate(newResult, respBody);
+                        respBody.flush();
+                        respBody.close();
+                    }
                 }
                 else {
                     // We did not get an auth token, so we return a "not authorized"
