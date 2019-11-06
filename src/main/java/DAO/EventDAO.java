@@ -52,10 +52,11 @@ public class EventDAO {
             stmt.setString(7, newEvent.getCity());
             stmt.setString(8, newEvent.getEventType());
             stmt.setInt(9, newEvent.getYear());
-
             stmt.executeUpdate();
         } catch (SQLException e) {
+            System.out.println(e.getMessage());
             throw new DatabaseException("Error encountered while inserting into the database");
+
         }
     }
 

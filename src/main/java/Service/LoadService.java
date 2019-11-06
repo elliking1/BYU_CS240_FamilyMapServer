@@ -62,7 +62,6 @@ public class LoadService {
                 eventDAO.addEvent(events[i]);
                 numEvents++;
             }
-            System.out.println("Past Events");
 
             // TODO: Return error for invalid request data
             dbConnect.closeConnection(true);

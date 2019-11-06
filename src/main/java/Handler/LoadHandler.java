@@ -41,6 +41,7 @@ public class LoadHandler extends HandlerParent {
                 String reqData = readString(reqBody);
 
                 // Display/log the request JSON data
+                System.out.println("Load Data");
                 System.out.println(reqData);
                 Gson g = new Gson();
                 LoadRequest reqObject = g.fromJson(reqData, LoadRequest.class);

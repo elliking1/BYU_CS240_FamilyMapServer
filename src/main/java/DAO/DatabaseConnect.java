@@ -77,6 +77,7 @@ public class DatabaseConnect {
             myConnection.close();
             myConnection = null;
         } catch (SQLException e) {
+            System.out.println(e.getMessage());
             e.printStackTrace();
             throw new DatabaseException("Unable to close database connection");
         }

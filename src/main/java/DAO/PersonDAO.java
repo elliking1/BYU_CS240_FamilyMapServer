@@ -52,6 +52,7 @@ public class PersonDAO {
 
             stmt.executeUpdate();
         } catch (SQLException e) {
+            System.out.println(e.getMessage());
             throw new DatabaseException("Error encountered while inserting Person data into the database");
         }
     }

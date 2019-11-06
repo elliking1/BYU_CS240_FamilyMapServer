@@ -5,38 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="110685c6-2ae1-4c9f-9bd4-aa2406b31c0f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/test.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/json/example.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/json/fnames.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/json/locations.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/json/mnames.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/json/snames.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite-journal" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite-journal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/DatabaseConnect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/DatabaseConnect.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/DAO/EventDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/EventDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Handler/AllEventsHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Handler/AllPeopleHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Handler/EventHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Handler/EventHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Handler/FamilyMapServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Handler/FamilyMapServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/PersonDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/PersonDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Handler/FillHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Handler/FillHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Handler/PersonHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Handler/PersonHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Event.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Request/LoadRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Request/LoadRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Result/AllEventsResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Result/AllEventsResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Result/AllPeopleResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Result/AllPeopleResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Service/AllEventsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Service/AllEventsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Service/AllPeopleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Service/AllPeopleService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Service/ClearService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Service/ClearService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Service/EventService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Service/EventService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Handler/LoadHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Handler/LoadHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Person.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Service/FillService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Service/FillService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Service/LoadService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Service/LoadService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Service/RegisterService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Service/RegisterService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/DAO/EventDAOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/DAO/EventDAOTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Handler/AllEventsHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Handler/AllPeopleHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Handler/EventHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Handler/EventHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Handler/FamilyMapServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Handler/FamilyMapServer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Handler/PersonHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Handler/PersonHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Result/AllEventsResult.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Result/AllEventsResult.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Result/AllPeopleResult.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Result/AllPeopleResult.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Service/AllEventsService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Service/AllEventsService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Service/AllPeopleService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Service/AllPeopleService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Service/LoadService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Service/LoadService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Service/RegisterService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Service/RegisterService.class" afterDir="false" />
     </list>
@@ -315,7 +300,7 @@
       <workItem from="1572754896031" duration="2575000" />
       <workItem from="1572808613440" duration="9675000" />
       <workItem from="1572887036906" duration="9854000" />
-      <workItem from="1572902174323" duration="13666000" />
+      <workItem from="1572902174323" duration="31557000" />
     </task>
     <servers />
   </component>
@@ -337,20 +322,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/DAO/PersonDAO.java</url>
-          <line>37</line>
-          <properties class="DAO.PersonDAO">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/FamilyMapServer$PersonDAOTest.ic" NAME="PersonDAOTest Coverage Results" MODIFIED="1571708248171" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

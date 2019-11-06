@@ -35,7 +35,7 @@ public class RegisterService {
             UserDAO userDAO = new UserDAO(myConnection);
             User reqUser = userDAO.queryUser(request.getUserName());
             if(reqUser != null) {
-                return new RegisterLoginResult("Error: sername already taken by another user");
+                return new RegisterLoginResult("error - username already taken by another user");
             }
             PersonDAO personDAO = new PersonDAO(myConnection);
 
@@ -51,10 +51,12 @@ public class RegisterService {
                 AuthToken newToken = new AuthToken(newUser.getUserName());
                 authTokenDAO.addToken(newToken);
 
-                // TODO: Generate 4 generations of ancestor data for user
+                FillService fillService = new FillService();
+                fillService.fillDatabase(newUser.getUserName(), 4);
+
                 return new RegisterLoginResult(newToken.getToken(), newUser.getUserName(), newUser.getPersonID());
             } catch (DatabaseException wrongInfo) {
-                return new RegisterLoginResult("Error: Request property missing or has invalid value");
+                return new RegisterLoginResult("error - Request property missing or has invalid value");
             }
 
 

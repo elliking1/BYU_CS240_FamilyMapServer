@@ -40,19 +40,21 @@ public class FillHandler extends HandlerParent {
                 String urlPath = exchange.getRequestURI().toString();
                 StringBuilder usr = new StringBuilder();
                 int generations = 0;
+                System.out.println(urlPath);
                 for(int i = 6; i < urlPath.length(); i++) {
                     if(urlPath.charAt(i) != '/') {
                         usr.append(urlPath.charAt(i));
                     }
-                    else if(i + 1 < urlPath.length()) {
-                        generations = urlPath.charAt(i+1);
-                        break;
+                    else {
+                        if(i + 1 < urlPath.length()) {
+                            generations = Character.getNumericValue(urlPath.charAt(i+1));
+                            break;
+                        }
                     }
                 }
                 if(generations == 0) {
                     generations = 4;
                 }
-                System.out.println(reqData);
                 String userName = usr.toString();
                 FillService serviceObject = new FillService();
                 StandardResult newResult = serviceObject.fillDatabase(userName, generations);

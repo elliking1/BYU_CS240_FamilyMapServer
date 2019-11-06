@@ -67,6 +67,21 @@ public class Person {
         this.firstName = firstName;
         this.lastName = lastName;
         this.gender = gender;
+        this.spouseID = "";
+        this.motherID = null;
+        this.fatherID = null;
+
+    }
+
+    public Person(String personID, String userName, String firstName, String lastName, String gender) {
+        this.personID = personID;
+        this.associatedUserName = userName;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.gender = gender;
+        this.spouseID = "";
+        this.motherID = null;
+        this.fatherID = null;
     }
 
     public String getPersonID() {
