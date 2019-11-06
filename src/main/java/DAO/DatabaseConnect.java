@@ -1,5 +1,7 @@
 package DAO;
 
+import org.sqlite.SQLiteConnection;
+
 import java.sql.*;
 
 
@@ -33,6 +35,7 @@ public class DatabaseConnect {
 
             myConnection = DriverManager.getConnection(CONNECTION_URL);
             myConnection.setAutoCommit(false);
+            //((SQLiteConnection)myConnection).setBusyTimeout(10000);
         } catch (SQLException e){
             e.printStackTrace();
             throw new DatabaseException("Unable to open connection to database");
@@ -76,6 +79,7 @@ public class DatabaseConnect {
 
             myConnection.close();
             myConnection = null;
+
         } catch (SQLException e) {
             System.out.println(e.getMessage());
             e.printStackTrace();

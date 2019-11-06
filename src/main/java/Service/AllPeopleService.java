@@ -29,21 +29,28 @@ public class AllPeopleService {
      * @param authToken Auth Token of user whose relatives these are
      * */
     public AllPeopleResult getAllPeople(String authToken) {
+        DatabaseConnect dbConnect = new DatabaseConnect();
         try {
-            DatabaseConnect dbConnect = new DatabaseConnect();
             Connection myConnection = dbConnect.openConnection();
             AuthTokenDAO authDAO = new AuthTokenDAO(myConnection);
             AuthToken myToken = authDAO.queryToken(authToken);
             if(myToken == null) {
+                dbConnect.closeConnection(false);
                 return new AllPeopleResult("error - Invalid auth token");
             }
 
             PersonDAO personDAO = new PersonDAO(myConnection);
             ArrayList<Person> people = personDAO.queryAllRelativesOfUser(myToken.getUserName());
 
+            dbConnect.closeConnection(true);
             return new AllPeopleResult(people);
 
         } catch (DatabaseException d) {
+            try {
+                dbConnect.closeConnection(false);
+            } catch (DatabaseException b) {
+                b.printStackTrace();
+            }
             return new AllPeopleResult("Internal server error");
         }
     }

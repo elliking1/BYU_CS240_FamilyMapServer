@@ -164,7 +164,7 @@ public class PersonDAOTest {
             pDao.addPerson(myPerson);
             personTwo = new Person("person2", "MyUserName", "Bob", "Barker", "m", "person0", "person5", "person3");
             pDao.addPerson(personTwo);
-            pDao.deleteRelativesOfPerson(myPerson.getAssociatedUserName());
+            pDao.deleteRelativesOfPerson(myPerson.getAssociatedUsername());
 
             compareTest = pDao.queryPerson(myPerson.getPersonID());
             compareTestTwo = pDao.queryPerson(personTwo.getPersonID());
@@ -252,7 +252,7 @@ public class PersonDAOTest {
             Person personTwo = new Person("person2", "MyUserName", "Bob",
                     "Barker", "m", "person0", "person5", "person3");
             pDao.addPerson(personTwo);
-            peopleList = pDao.queryAllRelativesOfUser(myPerson.getAssociatedUserName());
+            peopleList = pDao.queryAllRelativesOfUser(myPerson.getAssociatedUsername());
 
             db.closeConnection(true);
         } catch (DatabaseException e) {

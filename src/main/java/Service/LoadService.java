@@ -31,12 +31,10 @@ public class LoadService {
     public StandardResult load(LoadRequest request) {
         DatabaseConnect dbConnect = new DatabaseConnect();
         try {
-            Connection conn = dbConnect.openConnection();
-            dbConnect.clearTables();
-            int numUsers = 0;
-            int numPersons = 0;
-            int numEvents = 0;
+            ClearService clearService = new ClearService();
+            StandardResult result = clearService.clearDatabase();
 
+            Connection conn = dbConnect.openConnection();
             UserDAO userDAO = new UserDAO(conn);
             PersonDAO personDAO = new PersonDAO(conn);
             EventDAO eventDAO = new EventDAO(conn);
@@ -45,25 +43,24 @@ public class LoadService {
             Person[] people = request.getPersons();
             Event[] events = request.getEvents();
 
+            int numUsers = 0;
+            int numPersons = 0;
+            int numEvents = 0;
             for(int i = 0; i < users.length; i++) {
-                System.out.println(users[i].getUserName());
                 userDAO.addUser(users[i]);
                 numUsers++;
             }
 
             for(int i = 0; i < people.length; i++) {
-                System.out.println(people[i].getPersonID());
                 personDAO.addPerson(people[i]);
                 numPersons++;
             }
 
             for(int i = 0; i < events.length; i++) {
-                System.out.println(events[i].getEventID());
                 eventDAO.addEvent(events[i]);
                 numEvents++;
             }
 
-            // TODO: Return error for invalid request data
             dbConnect.closeConnection(true);
             return new StandardResult("Successfully added " + numUsers + " users, " + numPersons +
                                       " persons, and " + numEvents + " events to the database.");

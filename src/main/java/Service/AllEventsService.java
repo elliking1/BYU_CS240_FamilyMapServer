@@ -30,21 +30,28 @@ public class AllEventsService {
      * @param authToken Auth Token of user whose events these are
      * */
     public AllEventsResult getAllEvents(String authToken) {
+        DatabaseConnect dbConnect = new DatabaseConnect();
         try {
-            DatabaseConnect dbConnect = new DatabaseConnect();
             Connection myConnection = dbConnect.openConnection();
             AuthTokenDAO authDAO = new AuthTokenDAO(myConnection);
             AuthToken myToken = authDAO.queryToken(authToken);
             if(myToken == null) {
+                dbConnect.closeConnection(false);
                 return new AllEventsResult("error - Invalid auth token");
             }
 
             EventDAO eventDAO = new EventDAO(myConnection);
             ArrayList<Event> events = eventDAO.queryAllEventsOfUser(myToken.getUserName());
 
+            dbConnect.closeConnection(true);
             return new AllEventsResult(events);
 
         } catch (DatabaseException d) {
+            try {
+                dbConnect.closeConnection(false);
+            } catch (DatabaseException b) {
+                b.printStackTrace();
+            }
             return new AllEventsResult("Internal server error");
         }
     }

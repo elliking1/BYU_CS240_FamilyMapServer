@@ -11,7 +11,7 @@ public class Person {
     private String personID;
 
     /** UserName of person */
-    private String associatedUserName;
+    private String associatedUsername;
 
     /** FirstName */
     private String firstName;
@@ -41,7 +41,7 @@ public class Person {
     /** Non-empty constructor for Person
      *
      * @param personID Unique identifier of person
-     * @param associatedUserName UserName of person's FamilyMap account
+     * @param associatedUsername UserName of person's FamilyMap account
      * @param firstName First name of person
      * @param lastName Last name of person
      * @param gender Gender of person
@@ -49,10 +49,10 @@ public class Person {
      * @param motherID PersonID of this person's mother
      * @param spouseID PersonID of this person's spouse
      * */
-    public Person(String personID, String associatedUserName, String firstName, String lastName,
+    public Person(String personID, String associatedUsername, String firstName, String lastName,
                   String gender, String fatherID, String motherID, String spouseID) {
         this.personID = personID;
-        this.associatedUserName = associatedUserName;
+        this.associatedUsername = associatedUsername;
         this.firstName = firstName;
         this.lastName = lastName;
         this.gender = gender;
@@ -63,11 +63,11 @@ public class Person {
 
     public Person(String userName, String firstName, String lastName, String gender) {
         this.personID = UUID.randomUUID().toString();
-        this.associatedUserName = userName;
+        this.associatedUsername = userName;
         this.firstName = firstName;
         this.lastName = lastName;
         this.gender = gender;
-        this.spouseID = "";
+        this.spouseID = null;
         this.motherID = null;
         this.fatherID = null;
 
@@ -75,11 +75,11 @@ public class Person {
 
     public Person(String personID, String userName, String firstName, String lastName, String gender) {
         this.personID = personID;
-        this.associatedUserName = userName;
+        this.associatedUsername = userName;
         this.firstName = firstName;
         this.lastName = lastName;
         this.gender = gender;
-        this.spouseID = "";
+        this.spouseID = null;
         this.motherID = null;
         this.fatherID = null;
     }
@@ -92,12 +92,12 @@ public class Person {
         this.personID = personID;
     }
 
-    public String getAssociatedUserName() {
-        return associatedUserName;
+    public String getAssociatedUsername() {
+        return associatedUsername;
     }
 
-    public void setAssociatedUserName(String associatedUserName) {
-        this.associatedUserName = associatedUserName;
+    public void setAssociatedUsername(String associatedUsername) {
+        this.associatedUsername = associatedUsername;
     }
 
     public String getFirstName() {
@@ -155,7 +155,7 @@ public class Person {
         if (o instanceof Person) {
             Person oPerson = (Person) o;
             return oPerson.getPersonID().equals(getPersonID()) &&
-                    oPerson.getAssociatedUserName().equals(getAssociatedUserName()) &&
+                    oPerson.getAssociatedUsername().equals(getAssociatedUsername()) &&
                     oPerson.getFirstName().equals(getFirstName()) &&
                     oPerson.getLastName().equals(getLastName()) &&
                     oPerson.getGender().equals(getGender()) &&

@@ -18,6 +18,7 @@ import java.util.UUID;
 
 /**
  * This class fills the database
+ *
  * @author Cameron Brown
  */
 public class FillService {
@@ -26,70 +27,70 @@ public class FillService {
     private ArrayList<String> maleFirstNames = new ArrayList<>();
     private ArrayList<String> lastNames = new ArrayList<>();
     private ArrayList<Location> locations = new ArrayList<>();
-    private Connection conn;
+    DatabaseConnect dbConnect;
 
-    /** Empty Constructor for FillService
-     *
-     * */
+    /**
+     * Empty Constructor for FillService
+     */
     public FillService() {
         createNameLists();
         createLocationList();
     }
 
-    /** This fills database with the specified amount of generations for the specified user.
+    /**
+     * This fills database with the specified amount of generations for the specified user.
      *
-     * @param userName The UserName of the person whose generation data will fill the database.
+     * @param userName    The UserName of the person whose generation data will fill the database.
      * @param generations The number of generations of the user's ancestors to generate.
-     *
      * @return Returns the success or failure of the fill operation
-     * */
+     */
     public StandardResult fillDatabase(String userName, int generations) {
-        DatabaseConnect dbConnect = new DatabaseConnect();
+        dbConnect = new DatabaseConnect();
         try {
-            conn = dbConnect.openConnection();
             if (generations < 0) {
                 return new StandardResult("error - Invalid generations parameter.");
             }
-
+            Connection conn = dbConnect.openConnection();
             UserDAO userDAO = new UserDAO(conn);
             User user = userDAO.queryUser(userName);
 
             if (user == null) {
+                dbConnect.closeConnection(false);
                 return new StandardResult("error - Invalid username.");
             }
 
 
             PersonDAO personDAO = new PersonDAO(conn);
-            EventDAO eventDAO = new EventDAO(conn);
-
             personDAO.deleteRelativesOfPerson(userName);
-            eventDAO.deleteAllEventsOfUser(userName);
             personDAO.deletePerson(user.getPersonID());
 
-            Person basePerson = new Person(user.getPersonID(), user.getUserName(), user.getFirstName(),
-                                           user.getLastName(), user.getGender());
+            EventDAO eventDAO = new EventDAO(conn);
+            eventDAO.deleteAllEventsOfUser(userName);
 
+            Person basePerson = new Person(user.getPersonID(), userName, user.getFirstName(),
+                    user.getLastName(), user.getGender());
             Random rand = new Random();
             int birthYear = 1990;
             Location birthLocation = locations.get(rand.nextInt(locations.size()));
             String eventID = UUID.randomUUID().toString();
             Event birthEvent = new Event(eventID, user.getUserName(), basePerson.getPersonID(),
-                                         birthLocation.getLatitude(), birthLocation.getLongitude(),
-                                         birthLocation.getCountry(), birthLocation.getCity(), "Birth", birthYear);
+                    birthLocation.getLatitude(), birthLocation.getLongitude(),
+                    birthLocation.getCountry(), birthLocation.getCity(), "Birth", birthYear);
             eventDAO.addEvent(birthEvent);
-
-
+            dbConnect.closeConnection(true);
             generateAncestors(basePerson, generations, birthYear);
 
-            dbConnect.closeConnection(true);
+
+
             int numPersons = 1;
-            for(int i = 1; i < 5; i++){
+            for (int i = 1; i < generations+1; i++) {
                 numPersons += (int) (Math.pow(2, i));
             }
             int numEvents = numPersons * 3 - 2;
             return new StandardResult("Successfully added " + numPersons + " persons and " + numEvents + " events to the database.");
 
         } catch (DatabaseException d) {
+            System.out.println(d.getMessage());
             try {
                 dbConnect.closeConnection(false);
             } catch (DatabaseException b) {
@@ -100,90 +101,113 @@ public class FillService {
     }
 
     public void generateAncestors(Person person, int generations, int childBirthYear) throws DatabaseException {
-        System.out.println("Generations = " + generations);
-        String fatherName;
-        String motherName;
-        String lastName;
-        Random rand;
-        if(person.getGender().equals("m")) {
-            lastName = person.getLastName();
-        }
-        else {
+        dbConnect = new DatabaseConnect();
+        try {
+            String fatherName;
+            String motherName;
+            String lastName;
+            Random rand;
+            if (person.getGender().equals("m")) {
+                lastName = person.getLastName();
+            } else {
+                rand = new Random();
+                lastName = lastNames.get(rand.nextInt(lastNames.size()));
+            }
             rand = new Random();
-            lastName = lastNames.get(rand.nextInt(lastNames.size()));
-        }
-        rand = new Random();
-        fatherName = maleFirstNames.get(rand.nextInt(maleFirstNames.size()));
+            fatherName = maleFirstNames.get(rand.nextInt(maleFirstNames.size()));
 
-        rand = new Random();
-        motherName = femaleFirstNames.get(rand.nextInt(femaleFirstNames.size()));
+            rand = new Random();
+            motherName = femaleFirstNames.get(rand.nextInt(femaleFirstNames.size()));
 
-        Person father = new Person(person.getAssociatedUserName(), fatherName, lastName, "m");
-        Person mother = new Person(person.getAssociatedUserName(), motherName, lastName, "f");
-        mother.setSpouseID(father.getPersonID());
-        father.setSpouseID(mother.getPersonID());
-        PersonDAO personDAO = new PersonDAO(conn);
+            Person father = new Person(person.getAssociatedUsername(), fatherName, lastName, "m");
+            Person mother = new Person(person.getAssociatedUsername(), motherName, lastName, "f");
+            mother.setSpouseID(father.getPersonID());
+            father.setSpouseID(mother.getPersonID());
 
-        person.setFatherID(father.getPersonID());
-        person.setMotherID(mother.getPersonID());
+            Connection conn = dbConnect.openConnection();
+            PersonDAO personDAO = new PersonDAO(conn);
 
-        personDAO.addPerson(person);
+            person.setFatherID(father.getPersonID());
+            person.setMotherID(mother.getPersonID());
 
-        int birthYear = childBirthYear - 25;
-        int deathYear = birthYear + 55;
-        Location motherLocation = locations.get(rand.nextInt(locations.size()));
-        Event motherBirthEvent = new Event(UUID.randomUUID().toString(), mother.getAssociatedUserName(), mother.getPersonID(),
-                motherLocation.getLatitude(), motherLocation.getLongitude(),
-                motherLocation.getCountry(), motherLocation.getCity(), "Birth", birthYear);
+            personDAO.addPerson(person);
 
-        Location fatherLocation = locations.get(rand.nextInt(locations.size()));
-        Event fatherBirthEvent = new Event(UUID.randomUUID().toString(), father.getAssociatedUserName(), father.getPersonID(),
-                fatherLocation.getLatitude(), fatherLocation.getLongitude(),
-                fatherLocation.getCountry(), fatherLocation.getCity(), "Birth", birthYear);
+            int birthYear = childBirthYear - 25;
+            int deathYear = birthYear + 55;
+            Location motherLocation = locations.get(rand.nextInt(locations.size()));
+            Event motherBirthEvent = new Event(UUID.randomUUID().toString(), mother.getAssociatedUsername(), mother.getPersonID(),
+                    motherLocation.getLatitude(), motherLocation.getLongitude(),
+                    motherLocation.getCountry(), motherLocation.getCity(), "Birth", birthYear);
 
-        Event motherDeathEvent = new Event(UUID.randomUUID().toString(), mother.getAssociatedUserName(), mother.getPersonID(),
-                motherLocation.getLatitude(), motherLocation.getLongitude(),
-                motherLocation.getCountry(), motherLocation.getCity(), "Death", deathYear);
+            Location fatherLocation = locations.get(rand.nextInt(locations.size()));
+            Event fatherBirthEvent = new Event(UUID.randomUUID().toString(), father.getAssociatedUsername(), father.getPersonID(),
+                    fatherLocation.getLatitude(), fatherLocation.getLongitude(),
+                    fatherLocation.getCountry(), fatherLocation.getCity(), "Birth", birthYear);
 
-        Event fatherDeathEvent = new Event(UUID.randomUUID().toString(), father.getAssociatedUserName(), father.getPersonID(),
-                fatherLocation.getLatitude(), fatherLocation.getLongitude(),
-                fatherLocation.getCountry(), fatherLocation.getCity(), "Death", deathYear);
+            Event motherDeathEvent = new Event(UUID.randomUUID().toString(), mother.getAssociatedUsername(), mother.getPersonID(),
+                    motherLocation.getLatitude(), motherLocation.getLongitude(),
+                    motherLocation.getCountry(), motherLocation.getCity(), "Death", deathYear);
 
-        EventDAO eventDAO = new EventDAO(conn);
-        eventDAO.addEvent(motherBirthEvent);
-        eventDAO.addEvent(fatherBirthEvent);
-        eventDAO.addEvent(motherDeathEvent);
-        eventDAO.addEvent(fatherDeathEvent);
+            Event fatherDeathEvent = new Event(UUID.randomUUID().toString(), father.getAssociatedUsername(), father.getPersonID(),
+                    fatherLocation.getLatitude(), fatherLocation.getLongitude(),
+                    fatherLocation.getCountry(), fatherLocation.getCity(), "Death", deathYear);
 
+            EventDAO eventDAO = new EventDAO(conn);
+            eventDAO.addEvent(motherBirthEvent);
+            eventDAO.addEvent(fatherBirthEvent);
+            eventDAO.addEvent(motherDeathEvent);
+            eventDAO.addEvent(fatherDeathEvent);
 
-        int marriageYear =  birthYear + 20;
-        createMarriageEvent(father, mother, marriageYear);
+            dbConnect.closeConnection(true);
 
-        int adjustedGenerations = generations - 1;
-        System.out.println("adjustedGenerations = " + adjustedGenerations);
-        if(adjustedGenerations >= 1) {
-            generateAncestors(mother, adjustedGenerations, birthYear);
-            generateAncestors(father, adjustedGenerations, birthYear);
+            int marriageYear = birthYear + 20;
+            createMarriageEvent(father, mother, marriageYear);
+
+            int adjustedGenerations = generations - 1;
+            if (adjustedGenerations >= 1) {
+                generateAncestors(mother, adjustedGenerations, birthYear);
+                generateAncestors(father, adjustedGenerations, birthYear);
+            }
+        } catch (DatabaseException d) {
+            try {
+                dbConnect.closeConnection(false);
+            } catch (DatabaseException b) {
+                b.printStackTrace();
+            }
+            throw new DatabaseException("Problem generating ancestors");
         }
     }
 
     public void createMarriageEvent(Person husband, Person wife, int year) throws DatabaseException {
-        EventDAO eventDAO = new EventDAO(conn);
-        String manMarriageID = UUID.randomUUID().toString();
-        String femaleMarriageID = UUID.randomUUID().toString();
-        Random rand = new Random();
-        Location marriageLocation = locations.get(rand.nextInt(locations.size()));
-        Event manEvent = new Event(manMarriageID, husband.getAssociatedUserName(), husband.getPersonID(),
-                                   marriageLocation.getLatitude(), marriageLocation.getLongitude(),
-                                   marriageLocation.getCountry(), marriageLocation.getCity(),
-                                   "Marriage", year);
-        Event femaleEvent = new Event(femaleMarriageID, wife.getAssociatedUserName(), wife.getPersonID(),
-                marriageLocation.getLatitude(), marriageLocation.getLongitude(),
-                marriageLocation.getCountry(), marriageLocation.getCity(),
-                "Marriage", year);
+        dbConnect = new DatabaseConnect();
+        try {
+            Connection conn = dbConnect.openConnection();
+            EventDAO eventDAO = new EventDAO(conn);
+            String manMarriageID = UUID.randomUUID().toString();
+            String femaleMarriageID = UUID.randomUUID().toString();
+            Random rand = new Random();
+            Location marriageLocation = locations.get(rand.nextInt(locations.size()));
+            Event manEvent = new Event(manMarriageID, husband.getAssociatedUsername(), husband.getPersonID(),
+                    marriageLocation.getLatitude(), marriageLocation.getLongitude(),
+                    marriageLocation.getCountry(), marriageLocation.getCity(),
+                    "Marriage", year);
+            Event femaleEvent = new Event(femaleMarriageID, wife.getAssociatedUsername(), wife.getPersonID(),
+                    marriageLocation.getLatitude(), marriageLocation.getLongitude(),
+                    marriageLocation.getCountry(), marriageLocation.getCity(),
+                    "Marriage", year);
 
-        eventDAO.addEvent(manEvent);
-        eventDAO.addEvent(femaleEvent);
+            eventDAO.addEvent(manEvent);
+            eventDAO.addEvent(femaleEvent);
+            dbConnect.closeConnection(true);
+        } catch (DatabaseException d) {
+            try {
+                dbConnect.closeConnection(false);
+            } catch (DatabaseException b) {
+                b.printStackTrace();
+            }
+            throw new DatabaseException("Problem generating marriage event");
+        }
+
     }
 
     public void createNameLists() {
@@ -221,7 +245,7 @@ public class FillService {
         try {
             JsonReader reader = new JsonReader(new FileReader(locationsFile));
             Gson g = new Gson();
-            Locations places  = g.fromJson(reader, Locations.class);
+            Locations places = g.fromJson(reader, Locations.class);
             locations = places.getData();
         } catch (FileNotFoundException e) {
             e.printStackTrace();

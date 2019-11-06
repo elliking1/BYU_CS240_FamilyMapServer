@@ -36,13 +36,13 @@ public class PersonDAO {
      * @throws DatabaseException if an error occurs trying to access it
      * */
     public void addPerson(Person newPerson) throws DatabaseException {
-        String sql = "INSERT INTO Persons(PersonID, AssociatedUserName, FirstName, LastName, Gender, FatherID, MotherID, SpouseID) VALUES(?,?,?,?,?,?,?,?);";
+        String sql = "INSERT INTO Persons(PersonID, AssociatedUsername, FirstName, LastName, Gender, FatherID, MotherID, SpouseID) VALUES(?,?,?,?,?,?,?,?);";
         try (PreparedStatement stmt = myConnection.prepareStatement(sql)) {
             //Using the statements built-in set(type) functions we can pick the question mark we want
             //to fill in and give it a proper value. The first argument corresponds to the first
             //question mark found in our sql String
             stmt.setString(1, newPerson.getPersonID());
-            stmt.setString(2, newPerson.getAssociatedUserName());
+            stmt.setString(2, newPerson.getAssociatedUsername());
             stmt.setString(3, newPerson.getFirstName());
             stmt.setString(4, newPerson.getLastName());
             stmt.setString(5, newPerson.getGender());
@@ -86,6 +86,7 @@ public class PersonDAO {
             stmt.setString(1, userName);
             stmt.executeUpdate();
         } catch (SQLException e) {
+            System.out.println(e.getMessage());
             e.printStackTrace();
             throw new DatabaseException("Error encountered while deleting person");
         }

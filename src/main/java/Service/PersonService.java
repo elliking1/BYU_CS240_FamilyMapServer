@@ -27,30 +27,39 @@ public class PersonService {
      * @param authToken The Auth Token of the person being retrieved
      * */
     public PersonResult getPerson(String personID, String authToken) {
+        DatabaseConnect dbConnect = new DatabaseConnect();
         try {
-            DatabaseConnect dbConnect = new DatabaseConnect();
             Connection myConnection = dbConnect.openConnection();
             AuthTokenDAO authDAO = new AuthTokenDAO(myConnection);
             AuthToken myToken = authDAO.queryToken(authToken);
             if(myToken == null) {
+                dbConnect.closeConnection(false);
                 return new PersonResult("error - Invalid auth token");
             }
 
             PersonDAO personDAO = new PersonDAO(myConnection);
             Person reqPerson = personDAO.queryPerson(personID);
             if(reqPerson == null) {
+                dbConnect.closeConnection(false);
                 return new PersonResult("error - Invalid personID parameter");
             }
 
-            if(!reqPerson.getAssociatedUserName().equals(myToken.getUserName())) {
+            if(!reqPerson.getAssociatedUsername().equals(myToken.getUserName())) {
+                dbConnect.closeConnection(false);
                 return new PersonResult("error - Requested person does not belong to this user");
             }
 
-            return new PersonResult(reqPerson.getAssociatedUserName(), personID, reqPerson.getFirstName(),
+            dbConnect.closeConnection(true);
+            return new PersonResult(reqPerson.getAssociatedUsername(), personID, reqPerson.getFirstName(),
                        reqPerson.getLastName(), reqPerson.getGender(), reqPerson.getFatherID(),
                        reqPerson.getMotherID(), reqPerson.getSpouseID());
 
         } catch (DatabaseException d) {
+            try {
+                dbConnect.closeConnection(false);
+            } catch (DatabaseException b) {
+                b.printStackTrace();
+            }
             return new PersonResult("Internal server error");
         }
     }

@@ -30,8 +30,8 @@ public class LoginService {
      * @param request The data of the user that is requesting to log in
      * */
     public RegisterLoginResult login(LoginRequest request) {
+        DatabaseConnect dbConnect = new DatabaseConnect();
         try {
-            DatabaseConnect dbConnect = new DatabaseConnect();
             Connection myConnection = dbConnect.openConnection();
             UserDAO userDAO = new UserDAO(myConnection);
             User reqUser = userDAO.queryUser(request.getUserName());
@@ -43,12 +43,19 @@ public class LoginService {
                     myToken = new AuthToken(reqUser.getUserName());
                     authDAO.addToken(myToken);
                 }
+                dbConnect.closeConnection(true);
                 return new RegisterLoginResult(myToken.getToken(), reqUser.getUserName(), reqUser.getPersonID());
             }
             else {
+                dbConnect.closeConnection(false);
                 return new RegisterLoginResult("error - Failed to login. Login information was incorrect.");
             }
         } catch (DatabaseException d) {
+            try {
+                dbConnect.closeConnection(false);
+            } catch (DatabaseException b) {
+                b.printStackTrace();
+            }
             return new RegisterLoginResult("Internal server error");
         }
     }
