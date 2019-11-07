@@ -8,6 +8,7 @@ import Request.LoadRequest;
 import Result.StandardResult;
 
 import java.sql.Connection;
+import java.util.ArrayList;
 
 /**
  * This class clears all data from the database and then loads
@@ -39,25 +40,25 @@ public class LoadService {
             PersonDAO personDAO = new PersonDAO(conn);
             EventDAO eventDAO = new EventDAO(conn);
 
-            User[] users = request.getUsers();
-            Person[] people = request.getPersons();
-            Event[] events = request.getEvents();
+            ArrayList<User> users = request.getUsers();
+            ArrayList<Person> persons = request.getPersons();
+            ArrayList<Event> events = request.getEvents();
 
             int numUsers = 0;
             int numPersons = 0;
             int numEvents = 0;
-            for(int i = 0; i < users.length; i++) {
-                userDAO.addUser(users[i]);
+            for(int i = 0; i < users.size(); i++) {
+                userDAO.addUser(users.get(i));
                 numUsers++;
             }
 
-            for(int i = 0; i < people.length; i++) {
-                personDAO.addPerson(people[i]);
+            for(int i = 0; i < persons.size(); i++) {
+                personDAO.addPerson(persons.get(i));
                 numPersons++;
             }
 
-            for(int i = 0; i < events.length; i++) {
-                eventDAO.addEvent(events[i]);
+            for(int i = 0; i < events.size(); i++) {
+                eventDAO.addEvent(events.get(i));
                 numEvents++;
             }
 

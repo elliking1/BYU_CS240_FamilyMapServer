@@ -5,19 +5,19 @@ package Result;
  */
 public class EventResult extends StandardResult {
     /** UserName of person that this event belongs to */
-    private String associatedUserName;
+    private String associatedUsername;
 
     /** EventID */
-    private String EventID;
+    private String eventID;
 
     /** PersonID of person this event belongs to */
     private String personID;
 
     /** Latitude of the event’s location */
-    private double latitude;
+    private float latitude;
 
     /** Longitude of the event’s location */
-    private double longitude;
+    private float longitude;
 
     /** Name of country where event occurred */
     private String country;
@@ -40,7 +40,7 @@ public class EventResult extends StandardResult {
 
     /** Constructor for EventResult successes
      * @param eventID Unique identifier of the event
-     * @param associatedUserName UserName of user that the event belongs to
+     * @param associatedUsername UserName of user that the event belongs to
      * @param personID PersonID of User event belongs to
      * @param latitude Latitude of where the event was
      * @param longitude Longitude of where the event was
@@ -49,9 +49,9 @@ public class EventResult extends StandardResult {
      * @param eventType The type of event (i.e. birth, death, baptism, wedding, etc.)
      * @param year Year event occurred
      * */
-    public EventResult(String associatedUserName, String eventID, String personID, double latitude, double longitude, String country, String city, String eventType, int year) {
-        this.associatedUserName = associatedUserName;
-        EventID = eventID;
+    public EventResult(String associatedUsername, String eventID, String personID, float latitude, float longitude, String country, String city, String eventType, int year) {
+        this.associatedUsername = associatedUsername;
+        this.eventID = eventID;
         this.personID = personID;
         this.latitude = latitude;
         this.longitude = longitude;
@@ -69,20 +69,20 @@ public class EventResult extends StandardResult {
         this.message = message;
     }
 
-    public String getAssociatedUserName() {
-        return associatedUserName;
+    public String getAssociatedUsername() {
+        return associatedUsername;
     }
 
-    public void setAssociatedUserName(String associatedUserName) {
-        this.associatedUserName = associatedUserName;
+    public void setAssociatedUsername(String associatedUsername) {
+        this.associatedUsername = associatedUsername;
     }
 
     public String getEventID() {
-        return EventID;
+        return eventID;
     }
 
     public void setEventID(String eventID) {
-        EventID = eventID;
+        this.eventID = eventID;
     }
 
     public String getPersonID() {
@@ -93,19 +93,19 @@ public class EventResult extends StandardResult {
         this.personID = personID;
     }
 
-    public double getLatitude() {
+    public float getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(double latitude) {
+    public void setLatitude(float latitude) {
         this.latitude = latitude;
     }
 
-    public double getLongitude() {
+    public float getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(double longitude) {
+    public void setLongitude(float longitude) {
         this.longitude = longitude;
     }
 

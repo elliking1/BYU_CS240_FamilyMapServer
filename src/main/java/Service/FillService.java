@@ -168,6 +168,12 @@ public class FillService {
                 generateAncestors(mother, adjustedGenerations, birthYear);
                 generateAncestors(father, adjustedGenerations, birthYear);
             }
+            else if(adjustedGenerations == 0) {
+                personDAO = new PersonDAO(dbConnect.openConnection());
+                personDAO.addPerson(father);
+                personDAO.addPerson(mother);
+                dbConnect.closeConnection(true);
+            }
         } catch (DatabaseException d) {
             try {
                 dbConnect.closeConnection(false);
@@ -289,8 +295,8 @@ public class FillService {
     public static class Location {
         private String country;
         private String city;
-        private double latitude;
-        private double longitude;
+        private float latitude;
+        private float longitude;
 
         public Location() {
 
@@ -312,19 +318,19 @@ public class FillService {
             this.city = city;
         }
 
-        public double getLatitude() {
+        public float getLatitude() {
             return latitude;
         }
 
-        public void setLatitude(double latitude) {
+        public void setLatitude(float latitude) {
             this.latitude = latitude;
         }
 
-        public double getLongitude() {
+        public float getLongitude() {
             return longitude;
         }
 
-        public void setLongitude(double longitude) {
+        public void setLongitude(float longitude) {
             this.longitude = longitude;
         }
 

@@ -4,19 +4,21 @@ import Model.Event;
 import Model.Person;
 import Model.User;
 
+import java.util.ArrayList;
+
 /**
  * This class handles requests for data to be loaded into the database
  * @author Cameron Brown
  */
 public class LoadRequest {
     /** List of Users to be loaded into Database*/
-    private User[] users;
+    private ArrayList<User> users;
 
     /** List of Persons to be loaded into Database */
-    private Person[] persons;
+    private ArrayList<Person> persons;
 
     /** List of Events to be loaded into Database */
-    private Event[] events;
+    private ArrayList<Event> events;
 
     /** Empty constructor for LoadRequest
      *
@@ -31,33 +33,33 @@ public class LoadRequest {
      * @param persons List of people to be loaded into database
      * @param events List of events to be loaded into database
      * */
-    public LoadRequest(User[] users, Person[] persons, Event[] events) {
+    public LoadRequest(ArrayList<User> users, ArrayList<Person> persons, ArrayList<Event> events) {
         this.users = users;
         this.persons = persons;
         this.events = events;
     }
 
-    public User[] getUsers() {
+    public ArrayList<User> getUsers() {
         return users;
     }
 
-    public void setUsers(User[] users) {
+    public void setUsers(ArrayList<User> users) {
         this.users = users;
     }
 
-    public Person[] getPersons() {
+    public ArrayList<Person> getPersons() {
         return persons;
     }
 
-    public void setPersons(Person[] persons) {
+    public void setPersons(ArrayList<Person> persons) {
         this.persons = persons;
     }
 
-    public Event[] getEvents() {
+    public ArrayList<Event> getEvents() {
         return events;
     }
 
-    public void setEvents(Event[] events) {
+    public void setEvents(ArrayList<Event> events) {
         this.events = events;
     }
 }

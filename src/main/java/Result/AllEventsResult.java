@@ -10,7 +10,7 @@ import java.util.ArrayList;
  */
 public class AllEventsResult extends StandardResult {
     /** Array of Event Objects */
-    private ArrayList<Event> events;
+    private ArrayList<Event> data;
 
 
     /** Empty constructor for AllEventsResult
@@ -25,7 +25,7 @@ public class AllEventsResult extends StandardResult {
      * @param events List of events that need to be returned
      * */
     public AllEventsResult(ArrayList<Event> events) {
-        this.events = events;
+        this.data = events;
     }
 
     /** Constructor for AllEventsResult failures
@@ -36,12 +36,12 @@ public class AllEventsResult extends StandardResult {
         this.message = message;
     }
 
-    public ArrayList<Event> getEvents() {
-        return events;
+    public ArrayList<Event> getData() {
+        return data;
     }
 
-    public void setEvents(ArrayList<Event> events) {
-        this.events = events;
+    public void setData(ArrayList<Event> data) {
+        this.data = data;
     }
 
 }

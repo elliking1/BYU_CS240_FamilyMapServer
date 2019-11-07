@@ -9,7 +9,7 @@ import java.util.Objects;
  */
 public class PersonResult extends StandardResult {
     /** UserName of person */
-    private String associatedUserName;
+    private String associatedUsername;
 
     /** PersonID */
     private String personID;
@@ -50,7 +50,7 @@ public class PersonResult extends StandardResult {
      * @param spouseID PersonID of this person's spouse
      * */
     public PersonResult(String associatedUserName, String personID, String firstName, String lastName, String gender, String fatherID, String motherID, String spouseID) {
-        this.associatedUserName = associatedUserName;
+        this.associatedUsername = associatedUserName;
         this.personID = personID;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -68,12 +68,12 @@ public class PersonResult extends StandardResult {
         this.message = message;
     }
 
-    public String getAssociatedUserName() {
-        return associatedUserName;
+    public String getAssociatedUsername() {
+        return associatedUsername;
     }
 
-    public void setAssociatedUserName(String associatedUserName) {
-        this.associatedUserName = associatedUserName;
+    public void setAssociatedUsername(String associatedUsername) {
+        this.associatedUsername = associatedUsername;
     }
 
     public String getPersonID() {
@@ -137,7 +137,7 @@ public class PersonResult extends StandardResult {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         PersonResult that = (PersonResult) o;
-        return associatedUserName.equals(that.associatedUserName) &&
+        return associatedUsername.equals(that.associatedUsername) &&
                 personID.equals(that.personID) &&
                 firstName.equals(that.firstName) &&
                 lastName.equals(that.lastName) &&

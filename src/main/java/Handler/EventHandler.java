@@ -85,21 +85,4 @@ public class EventHandler extends HandlerParent {
         exchange.getResponseBody().close();
     }
 
-    @Override
-    protected void generate(StandardResult result, OutputStream output) throws IOException {
-        if (result.getMessage() != null) {
-            Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
-            String jsonString = gson.toJson(result);
-
-            OutputStreamWriter outputWriter = new OutputStreamWriter(output);
-            BufferedWriter bufferedWriter = new BufferedWriter(outputWriter);
-            bufferedWriter.write(jsonString);
-            bufferedWriter.flush();
-
-            System.out.println(jsonString);
-        } else {
-            super.generate(result, output);
-        }
-
-    }
 }

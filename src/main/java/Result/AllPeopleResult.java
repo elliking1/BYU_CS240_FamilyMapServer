@@ -10,7 +10,7 @@ import java.util.ArrayList;
  */
 public class AllPeopleResult extends StandardResult {
     /** Array of Person Objects */
-    private ArrayList<Person> persons;
+    private ArrayList<Person> data;
 
     /** Empty constructor for AllPeopleResult
      *
@@ -24,7 +24,7 @@ public class AllPeopleResult extends StandardResult {
      * @param persons List of people to return
      * */
     public AllPeopleResult(ArrayList<Person> persons) {
-        this.persons = persons;
+        this.data = persons;
     }
 
     /** Constructor for AllPeopleResult Failures
@@ -35,11 +35,11 @@ public class AllPeopleResult extends StandardResult {
         this.message = message;
     }
 
-    public ArrayList<Person> getPersons() {
-        return persons;
+    public ArrayList<Person> getData() {
+        return data;
     }
 
-    public void setPersons(ArrayList<Person> persons) {
-        this.persons = persons;
+    public void setData(ArrayList<Person> data) {
+        this.data = data;
     }
 }

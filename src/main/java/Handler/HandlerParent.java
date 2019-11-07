@@ -36,15 +36,20 @@ public class HandlerParent implements HttpHandler {
     }
 
      protected void generate(StandardResult result, OutputStream output) throws IOException {
-        Gson gson = new GsonBuilder().create();
-        String jsonString = gson.toJson(result);
+        Gson gson;
+        if(result.getMessage() != null) {
+            gson = new GsonBuilder().setPrettyPrinting().excludeFieldsWithoutExposeAnnotation().create();
+        }
+        else {
+           gson = new GsonBuilder().setPrettyPrinting().create();
+        }
+         String jsonString = gson.toJson(result);
+         OutputStreamWriter outputWriter = new OutputStreamWriter(output);
+         BufferedWriter bufferedWriter = new BufferedWriter(outputWriter);
+         bufferedWriter.write(jsonString);
+         bufferedWriter.flush();
 
-        OutputStreamWriter outputWriter = new OutputStreamWriter(output);
-        BufferedWriter bufferedWriter = new BufferedWriter(outputWriter);
-        bufferedWriter.write(jsonString);
-        bufferedWriter.flush();
-
-        System.out.println(jsonString);
+         System.out.println(jsonString);
     }
 
 }
