@@ -1,4 +1,5 @@
 package Result;
+
 /**
  * This class handles results for returning a single event with specified ID.
  * @author Cameron Brown
@@ -73,10 +74,6 @@ public class EventResult extends StandardResult {
         return associatedUsername;
     }
 
-    public void setAssociatedUsername(String associatedUsername) {
-        this.associatedUsername = associatedUsername;
-    }
-
     public String getEventID() {
         return eventID;
     }
@@ -125,20 +122,28 @@ public class EventResult extends StandardResult {
         this.city = city;
     }
 
-    public String getEventType() {
-        return eventType;
-    }
-
-    public void setEventType(String eventType) {
-        this.eventType = eventType;
-    }
-
     public int getYear() {
         return year;
     }
 
     public void setYear(int year) {
         this.year = year;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        EventResult that = (EventResult) o;
+        return Float.compare(that.latitude, latitude) == 0 &&
+                Float.compare(that.longitude, longitude) == 0 &&
+                year == that.year &&
+                associatedUsername.equals(that.associatedUsername) &&
+                eventID.equals(that.eventID) &&
+                personID.equals(that.personID) &&
+                country.equals(that.country) &&
+                city.equals(that.city) &&
+                eventType.equals(that.eventType);
     }
 
 }

@@ -1,6 +1,5 @@
 package Service;
 
-import DAO.AuthTokenDAO;
 import Request.LoadRequest;
 import Request.LoginRequest;
 import Result.RegisterLoginResult;
@@ -13,7 +12,7 @@ import java.io.FileReader;
 
 public class TestParent {
     // The result of logging the user in so that we have easy access to AuthToken in testing.
-    protected RegisterLoginResult registerLoginResult;
+    RegisterLoginResult registerLoginResult;
 
     @BeforeEach
     public void setUp() throws Exception {
@@ -31,8 +30,4 @@ public class TestParent {
         registerLoginResult = loginService.login(loginRequest);
     }
 
-   /* @AfterEach
-    public void tearDown() throws Exception {
-
-    }*/
 }

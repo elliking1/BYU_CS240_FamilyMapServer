@@ -96,10 +96,6 @@ public class Person {
         return associatedUsername;
     }
 
-    public void setAssociatedUsername(String associatedUsername) {
-        this.associatedUsername = associatedUsername;
-    }
-
     public String getFirstName() {
         return firstName;
     }

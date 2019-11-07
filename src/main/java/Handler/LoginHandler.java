@@ -4,12 +4,10 @@ import Request.LoginRequest;
 import Result.RegisterLoginResult;
 import Service.LoginService;
 import com.google.gson.Gson;
-import com.sun.net.httpserver.Headers;
 import com.sun.net.httpserver.HttpExchange;
 
 import java.io.*;
 import java.net.HttpURLConnection;
-import java.nio.file.Files;
 
 public class LoginHandler extends HandlerParent {
     /**
@@ -35,7 +33,6 @@ public class LoginHandler extends HandlerParent {
         try {
             // Only allow POST Requests
             if (exchange.getRequestMethod().toUpperCase().equals("POST")) {
-                Headers reqHeaders = exchange.getRequestHeaders();
                 InputStream reqBody = exchange.getRequestBody();
                 String reqData = readString(reqBody);
 

@@ -5,10 +5,10 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class PersonServiceTest extends TestParent {
+class PersonServiceTest extends TestParent {
 
     @Test
-    public void getPersonPass() throws Exception {
+    void getPersonPass() {
         PersonService personService = new PersonService();
         PersonResult myResult = personService.getPerson("Sheila_Parker", registerLoginResult.getAuthToken());
         PersonResult expected = new PersonResult("sheila", "Sheila_Parker",
@@ -18,7 +18,7 @@ public class PersonServiceTest extends TestParent {
     }
 
     @Test
-    public void getPersonFail() throws Exception {
+    void getPersonFail() {
         PersonService personService = new PersonService();
         PersonResult myResult = personService.getPerson("Happy_Birthday", registerLoginResult.getAuthToken());
         PersonResult expected = new PersonResult("error - Requested person does not belong to this user");

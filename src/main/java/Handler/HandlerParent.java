@@ -24,7 +24,7 @@ public class HandlerParent implements HttpHandler {
 
     }
 
-    protected String readString(InputStream reqBody) throws IOException {
+    String readString(InputStream reqBody) throws IOException {
         StringBuilder sb = new StringBuilder();
         InputStreamReader sr = new InputStreamReader(reqBody);
         char[] buf = new char[1024];

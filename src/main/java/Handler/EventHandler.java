@@ -2,18 +2,13 @@ package Handler;
 
 import Result.AllEventsResult;
 import Result.EventResult;
-import Result.StandardResult;
 import Service.AllEventsService;
 import Service.EventService;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.sun.net.httpserver.Headers;
 import com.sun.net.httpserver.HttpExchange;
 
-import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 
 public class EventHandler extends HandlerParent {

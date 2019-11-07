@@ -10,12 +10,12 @@ import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class EventDAOTest {
+class EventDAOTest {
     private DatabaseConnect db;
     private Event myEvent;
 
     @BeforeEach
-    public void setUp() throws Exception {
+    void setUp() throws Exception {
         //here we can set up any classes or variables we will need for the rest of our tests
         //lets create a new database
         db = new DatabaseConnect();
@@ -30,7 +30,7 @@ public class EventDAOTest {
     }
 
     @AfterEach
-    public void tearDown() throws Exception {
+    void tearDown() throws Exception {
         //here we can get rid of anything from our tests we don't want to affect the rest of our program
         //lets clear the tables so that any data we entered for testing doesn't linger in our files
         db.openConnection();
@@ -39,7 +39,7 @@ public class EventDAOTest {
     }
 
     @Test
-    public void addEventPass() throws Exception {
+    void addEventPass() throws Exception {
         //We want to make sure insert works
         //First lets create an Event that we'll set to null. We'll use this to make sure what we put
         //in the database is actually there.
@@ -69,7 +69,7 @@ public class EventDAOTest {
     }
 
     @Test
-    public void addEventFail() throws Exception {
+    void addEventFail() throws Exception {
         //lets do this test again but this time lets try to make it fail
 
         // NOTE: The correct way to test for an exception in Junit 5 is to use an assertThrows
@@ -115,7 +115,7 @@ public class EventDAOTest {
     }
 
     @Test
-    public void deleteEventPass() throws Exception {
+    void deleteEventPass() throws Exception {
 
         Event compareTest = null;
 
@@ -136,7 +136,7 @@ public class EventDAOTest {
     }
 
     @Test
-    public void deleteEventFail() throws Exception {
+    void deleteEventFail() throws Exception {
 
         Event compareTest = null;
         try {
@@ -156,10 +156,9 @@ public class EventDAOTest {
     }
 
     @Test
-    public void deleteAllEventsOfUserPass() throws Exception {
+    void deleteAllEventsOfUserPass() throws Exception {
         Event compareTest = null;
         Event compareTestTwo = null;
-        Event EventTwo = null;
         try {
             Connection conn = db.openConnection();
             conn.setAutoCommit(false);
@@ -183,7 +182,7 @@ public class EventDAOTest {
     }
 
     @Test
-    public void deleteAllEventsOfUserFail() throws Exception {
+    void deleteAllEventsOfUserFail() throws Exception {
         Event compareTest = null;
         Event compareTestTwo = null;
         try {
@@ -207,7 +206,7 @@ public class EventDAOTest {
     }
 
     @Test
-    public void queryEventPass() throws Exception {
+    void queryEventPass() throws Exception {
 
         Event compareTest = null;
 
@@ -231,7 +230,7 @@ public class EventDAOTest {
     }
 
     @Test
-    public void queryEventFail() throws Exception {
+    void queryEventFail() throws Exception {
         Event wasFound = null;
         try {
             Connection conn = db.openConnection();
@@ -247,7 +246,7 @@ public class EventDAOTest {
     }
 
     @Test
-    public void queryAllRelativesOfUserPass() throws Exception {
+    void queryAllRelativesOfUserPass() throws Exception {
         ArrayList<Event> peopleList = null;
         try {
             Connection conn = db.openConnection();
@@ -268,7 +267,7 @@ public class EventDAOTest {
     }
 
     @Test
-    public void queryAllRelativesOfUserFail() throws Exception {
+    void queryAllRelativesOfUserFail() throws Exception {
         ArrayList<Event> peopleList = null;
         try {
             Connection conn = db.openConnection();
@@ -284,14 +283,14 @@ public class EventDAOTest {
         } catch (DatabaseException e) {
             db.closeConnection(false);
         }
+        assert peopleList != null;
         assertNotEquals(peopleList.size(), 2);
     }
 
     @Test
-    public void clearEventsTablePass() throws Exception {
+    void clearEventsTablePass() throws Exception {
         Event compareTest = null;
         Event compareTestTwo = null;
-        Event EventTwo = null;
         try {
             Connection conn = db.openConnection();
             conn.setAutoCommit(false);

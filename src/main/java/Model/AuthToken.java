@@ -8,10 +8,10 @@ import java.util.UUID;
  */
 public class AuthToken {
     /** The Authentication Token */
-    String token;
+    private String token;
 
     /** The UserName of the user the AuthToken is assigned to */
-    String userName;
+    private String userName;
 
     /** Empty constructor for AuthToken
      *
@@ -25,7 +25,7 @@ public class AuthToken {
      * @param userName UserName of User Associated with AuthToken
      * */
     public AuthToken(String userName) {
-        this.token = UUID.randomUUID().toString();;
+        this.token = UUID.randomUUID().toString();
         this.userName = userName;
     }
 

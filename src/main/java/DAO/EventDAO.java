@@ -66,7 +66,7 @@ public class EventDAO {
      *
      * @throws DatabaseException An error that occurs while trying to access the database
      * */
-    public void deleteEvent(String eventID) throws DatabaseException {
+    void deleteEvent(String eventID) throws DatabaseException {
         String sql = "DELETE FROM Events WHERE EventID = ?;";
         try (PreparedStatement stmt = myConnection.prepareStatement(sql)) {
             stmt.setString(1,eventID);
@@ -174,7 +174,7 @@ public class EventDAO {
      *
      * @throws DatabaseException An exception that occurs when there is trouble accessing the database.
      * */
-    public void clearEventsTable() throws DatabaseException {
+    void clearEventsTable() throws DatabaseException {
         try (Statement stmt = myConnection.createStatement()){
             String sql = "DELETE FROM Events;";
             stmt.executeUpdate(sql);

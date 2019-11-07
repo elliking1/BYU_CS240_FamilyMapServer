@@ -9,12 +9,12 @@ import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class PersonDAOTest {
+class PersonDAOTest {
     private DatabaseConnect db;
     private Person myPerson;
 
     @BeforeEach
-    public void setUp() throws Exception {
+    void setUp() throws Exception {
         //here we can set up any classes or variables we will need for the rest of our tests
 
         //lets create a new database
@@ -31,7 +31,7 @@ public class PersonDAOTest {
     }
 
     @AfterEach
-    public void tearDown() throws Exception {
+    void tearDown() throws Exception {
         //here we can get rid of anything from our tests we don't want to affect the rest of our program
         //lets clear the tables so that any data we entered for testing doesn't linger in our files
         db.openConnection();
@@ -40,7 +40,7 @@ public class PersonDAOTest {
     }
 
     @Test
-    public void addPersonPass() throws Exception {
+    void addPersonPass() throws Exception {
         //We want to make sure add works
         //First lets create a Person that we'll set to null. We'll use this to make sure what we put
         //in the database is actually there.
@@ -69,7 +69,7 @@ public class PersonDAOTest {
     }
 
     @Test
-    public void addPersonFail() throws Exception {
+    void addPersonFail() throws Exception {
 
         boolean didItWork = true;
         try {
@@ -112,7 +112,7 @@ public class PersonDAOTest {
     }
 
     @Test
-    public void deletePersonPass() throws Exception {
+    void deletePersonPass() throws Exception {
 
         Person compareTest = null;
 
@@ -133,7 +133,7 @@ public class PersonDAOTest {
     }
 
     @Test
-    public void deletePersonFail() throws Exception {
+    void deletePersonFail() throws Exception {
 
         Person compareTest = null;
         try {
@@ -153,10 +153,10 @@ public class PersonDAOTest {
     }
 
     @Test
-    public void deleteRelativesOfPersonPass() throws Exception {
+    void deleteRelativesOfPersonPass() throws Exception {
         Person compareTest = null;
         Person compareTestTwo = null;
-        Person personTwo = null;
+        Person personTwo;
         try {
             Connection conn = db.openConnection();
             conn.setAutoCommit(false);
@@ -178,7 +178,7 @@ public class PersonDAOTest {
     }
 
     @Test
-    public void deleteRelativesOfPersonFail() throws Exception {
+    void deleteRelativesOfPersonFail() throws Exception {
         Person compareTest = null;
         Person compareTestTwo = null;
         try {
@@ -202,7 +202,7 @@ public class PersonDAOTest {
     }
 
     @Test
-    public void queryPersonPass() throws Exception {
+    void queryPersonPass() throws Exception {
 
         Person compareTest = null;
 
@@ -226,7 +226,7 @@ public class PersonDAOTest {
     }
 
     @Test
-    public void queryPersonFail() throws Exception {
+    void queryPersonFail() throws Exception {
         Person wasFound = null;
         try {
             Connection conn = db.openConnection();
@@ -242,7 +242,7 @@ public class PersonDAOTest {
     }
 
     @Test
-    public void queryAllRelativesOfUserPass() throws Exception {
+    void queryAllRelativesOfUserPass() throws Exception {
         ArrayList<Person> peopleList = null;
         try {
             Connection conn = db.openConnection();
@@ -263,7 +263,7 @@ public class PersonDAOTest {
     }
 
     @Test
-    public void queryAllRelativesOfUserFail() throws Exception {
+    void queryAllRelativesOfUserFail() throws Exception {
         ArrayList<Person> peopleList = null;
         try {
             Connection conn = db.openConnection();
@@ -279,16 +279,17 @@ public class PersonDAOTest {
         } catch (DatabaseException e) {
             db.closeConnection(false);
         }
+        assert peopleList != null;
         assertNotEquals(peopleList.size(), 2);
     }
 
     @Test
-    public void clearPersonsTablePass() throws Exception {
+    void clearPersonsTablePass() throws Exception {
         // Test if it cleared everything by adding two people with no related information
         // to the database and make sure they were both deleted.
         Person compareTest = null;
         Person compareTestTwo = null;
-        Person personTwo = null;
+        Person personTwo;
         try {
             Connection conn = db.openConnection();
             conn.setAutoCommit(false);

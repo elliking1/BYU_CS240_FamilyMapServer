@@ -32,7 +32,6 @@ public class FileHandler extends HandlerParent  {
         try {
             // Only allow GET Requests
             if (exchange.getRequestMethod().toUpperCase().equals("GET")) {
-                Headers reqHeaders = exchange.getRequestHeaders();
                 String urlPath = exchange.getRequestURI().toString();
                 exchange.sendResponseHeaders(HttpURLConnection.HTTP_OK, 0);
 

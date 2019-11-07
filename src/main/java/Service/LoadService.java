@@ -33,7 +33,7 @@ public class LoadService {
         DatabaseConnect dbConnect = new DatabaseConnect();
         try {
             ClearService clearService = new ClearService();
-            StandardResult result = clearService.clearDatabase();
+            clearService.clearDatabase();
 
             Connection conn = dbConnect.openConnection();
             UserDAO userDAO = new UserDAO(conn);
@@ -47,19 +47,28 @@ public class LoadService {
             int numUsers = 0;
             int numPersons = 0;
             int numEvents = 0;
-            for(int i = 0; i < users.size(); i++) {
-                userDAO.addUser(users.get(i));
-                numUsers++;
-            }
+            try {
+                for (User user : users) {
+                    userDAO.addUser(user);
+                    numUsers++;
+                }
 
-            for(int i = 0; i < persons.size(); i++) {
-                personDAO.addPerson(persons.get(i));
-                numPersons++;
-            }
+                for (Person person : persons) {
+                    personDAO.addPerson(person);
+                    numPersons++;
+                }
 
-            for(int i = 0; i < events.size(); i++) {
-                eventDAO.addEvent(events.get(i));
-                numEvents++;
+                for (Event event : events) {
+                    eventDAO.addEvent(event);
+                    numEvents++;
+                }
+            } catch(DatabaseException b) {
+                try {
+                    dbConnect.closeConnection(false);
+                } catch (DatabaseException e) {
+                    e.printStackTrace();
+                }
+                return new StandardResult("error - invalid request data");
             }
 
             dbConnect.closeConnection(true);

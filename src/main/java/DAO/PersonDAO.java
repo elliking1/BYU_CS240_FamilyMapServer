@@ -138,7 +138,7 @@ public class PersonDAO {
      * @return A list of people objects
      * */
     public ArrayList<Person> queryAllRelativesOfUser(String userName) throws DatabaseException {
-        ArrayList<Person> list = new ArrayList<Person>();
+        ArrayList<Person> list = new ArrayList<>();
 
         Person person;
         ResultSet rs = null;
@@ -171,7 +171,7 @@ public class PersonDAO {
      *
      * @throws DatabaseException An exception that occurs when there is trouble accessing the database.
      * */
-    public void clearPersonsTable() throws DatabaseException {
+    void clearPersonsTable() throws DatabaseException {
         try (Statement stmt = myConnection.createStatement()){
             String sql = "DELETE FROM Persons;";
             stmt.executeUpdate(sql);

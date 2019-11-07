@@ -2,17 +2,19 @@ package Service;
 
 import Result.AllEventsResult;
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-public class AllEventsServiceTest extends TestParent {
+class AllEventsServiceTest extends TestParent {
     @Test
-    public void getAllEventsPass() throws Exception {
-        
+    void getAllEventsPass() {
+        AllEventsService allEventsService = new AllEventsService();
+        AllEventsResult myResult = allEventsService.getAllEvents(registerLoginResult.getAuthToken());
+        assertNotNull(myResult);
     }
 
     @Test
-    public void getAllEventsFail() throws Exception {
+    void getAllEventsFail() {
         AllEventsService allEventsService = new AllEventsService();
         AllEventsResult myResult = allEventsService.getAllEvents("invalid");
         AllEventsResult expected = new AllEventsResult("error - Invalid auth token");

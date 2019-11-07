@@ -4,7 +4,6 @@ import Request.RegisterRequest;
 import Result.RegisterLoginResult;
 import Service.RegisterService;
 import com.google.gson.Gson;
-import com.sun.net.httpserver.Headers;
 import com.sun.net.httpserver.HttpExchange;
 
 import java.io.IOException;
@@ -36,7 +35,6 @@ public class RegisterHandler extends HandlerParent {
         try {
             // Only allow POST Requests
             if (exchange.getRequestMethod().toUpperCase().equals("POST")) {
-                Headers reqHeaders = exchange.getRequestHeaders();
                 InputStream reqBody = exchange.getRequestBody();
                 String reqData = readString(reqBody);
 

@@ -74,10 +74,6 @@ public class Event {
         return associatedUsername;
     }
 
-    public void setAssociatedUsername(String associatedUsername) {
-        this.associatedUsername = associatedUsername;
-    }
-
     public String getPersonID() {
         return personID;
     }
@@ -120,10 +116,6 @@ public class Event {
 
     public String getEventType() {
         return eventType;
-    }
-
-    public void setEventType(String eventType) {
-        this.eventType = eventType;
     }
 
     public int getYear() {

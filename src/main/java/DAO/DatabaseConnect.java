@@ -1,7 +1,5 @@
 package DAO;
 
-import org.sqlite.SQLiteConnection;
-
 import java.sql.*;
 
 
@@ -92,7 +90,7 @@ public class DatabaseConnect {
      *
      * @throws DatabaseException  An exception that occurs while trying to create the tables in the database
      */
-    public void createTables() throws DatabaseException {
+    void createTables() throws DatabaseException {
 
         try (Statement stmt = myConnection.createStatement()){
             //First lets open our connection to our database.

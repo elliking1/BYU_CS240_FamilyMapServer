@@ -61,7 +61,7 @@ public class UserDAO {
      *
      * @throws DatabaseException An exception that occurs when there is trouble accessing the database.
      * */
-    public void deleteUser(String userName) throws DatabaseException {
+    void deleteUser(String userName) throws DatabaseException {
         String sql = "DELETE FROM Users WHERE UserName = ?;";
         try (PreparedStatement stmt = myConnection.prepareStatement(sql)) {
             stmt.setString(1, userName);
@@ -115,7 +115,7 @@ public class UserDAO {
      *
      * @throws DatabaseException An exception that occurs when there is trouble accessing the database.
      * */
-    public void clearUsersTable() throws DatabaseException {
+    void clearUsersTable() throws DatabaseException {
         try (Statement stmt = myConnection.createStatement()){
             String sql = "DELETE FROM Users;";
             stmt.executeUpdate(sql);

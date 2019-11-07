@@ -27,7 +27,7 @@ public class FillService {
     private ArrayList<String> maleFirstNames = new ArrayList<>();
     private ArrayList<String> lastNames = new ArrayList<>();
     private ArrayList<Location> locations = new ArrayList<>();
-    DatabaseConnect dbConnect;
+    private DatabaseConnect dbConnect;
 
     /**
      * Empty Constructor for FillService
@@ -100,7 +100,7 @@ public class FillService {
         }
     }
 
-    public void generateAncestors(Person person, int generations, int childBirthYear) throws DatabaseException {
+    private void generateAncestors(Person person, int generations, int childBirthYear) throws DatabaseException {
         dbConnect = new DatabaseConnect();
         try {
             String fatherName;
@@ -184,7 +184,7 @@ public class FillService {
         }
     }
 
-    public void createMarriageEvent(Person husband, Person wife, int year) throws DatabaseException {
+    private void createMarriageEvent(Person husband, Person wife, int year) throws DatabaseException {
         dbConnect = new DatabaseConnect();
         try {
             Connection conn = dbConnect.openConnection();
@@ -216,7 +216,7 @@ public class FillService {
 
     }
 
-    public void createNameLists() {
+    private void createNameLists() {
         File maleNamesFile = new File("json/mnames.json");
         File femaleNamesFile = new File("json/fnames.json");
         File lastNamesFile = new File("json/snames.json");
@@ -245,7 +245,7 @@ public class FillService {
 
     }
 
-    public void createLocationList() {
+    private void createLocationList() {
         File locationsFile = new File("json/locations.json");
 
         try {

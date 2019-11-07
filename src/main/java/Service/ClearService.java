@@ -4,8 +4,6 @@ import DAO.DatabaseConnect;
 import DAO.DatabaseException;
 import Result.StandardResult;
 
-import java.sql.Connection;
-
 /**
  * This class deletes ALL data from the database.
  * @author Cameron Brown

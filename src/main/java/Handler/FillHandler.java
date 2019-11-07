@@ -33,8 +33,6 @@ public class FillHandler extends HandlerParent {
         try {
             // Only allow POST Requests
             if (exchange.getRequestMethod().toUpperCase().equals("POST")) {
-                InputStream reqBody = exchange.getRequestBody();
-                String reqData = readString(reqBody);
 
                 // Display/log the request JSON data
                 String urlPath = exchange.getRequestURI().toString();

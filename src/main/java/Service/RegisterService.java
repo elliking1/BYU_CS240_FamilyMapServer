@@ -6,7 +6,6 @@ import Model.Person;
 import Model.User;
 import Request.RegisterRequest;
 import Result.RegisterLoginResult;
-import Result.StandardResult;
 
 import java.sql.Connection;
 
@@ -56,7 +55,7 @@ public class RegisterService {
                 dbConnect.closeConnection(true);
 
                 FillService fillService = new FillService();
-                StandardResult result = fillService.fillDatabase(newUser.getUserName(), 4);
+                fillService.fillDatabase(newUser.getUserName(), 4);
 
                 return new RegisterLoginResult(newToken.getToken(), newUser.getUserName(), newUser.getPersonID());
             } catch (DatabaseException wrongInfo) {

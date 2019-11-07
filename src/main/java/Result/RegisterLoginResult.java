@@ -1,4 +1,5 @@
 package Result;
+
 /**
  * This class handles results for the Login API
  * @author Cameron Brown
@@ -13,13 +14,6 @@ public class RegisterLoginResult extends StandardResult {
 
     /** PersonID of the user */
     private String personID;
-
-    /** Empty constructor for RegisterLoginResult
-     *
-     * */
-    public RegisterLoginResult() {
-
-    }
 
     /** Constructor for RegisterLoginResult Successes
      *
@@ -63,6 +57,16 @@ public class RegisterLoginResult extends StandardResult {
 
     public void setPersonID(String personID) {
         this.personID = personID;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        RegisterLoginResult that = (RegisterLoginResult) o;
+        return authToken.equals(that.authToken) &&
+                userName.equals(that.userName) &&
+                personID.equals(that.personID);
     }
 
 }

@@ -2,7 +2,6 @@ package Handler;
 
 import Result.StandardResult;
 import Service.ClearService;
-import com.sun.net.httpserver.Headers;
 import com.sun.net.httpserver.HttpExchange;
 
 import java.io.IOException;
@@ -34,7 +33,7 @@ public class ClearHandler extends HandlerParent {
         try {
             // Only allow POST Requests
             if (exchange.getRequestMethod().toUpperCase().equals("POST")) {
-                Headers reqHeaders = exchange.getRequestHeaders();
+
                 InputStream reqBody = exchange.getRequestBody();
                 String reqData = readString(reqBody);
 

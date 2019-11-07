@@ -3,7 +3,6 @@ package DAO;
 import Model.AuthToken;
 
 import java.sql.*;
-import java.util.ArrayList;
 
 /**
  * This class accesses the AuthToken table and its data
@@ -57,7 +56,7 @@ public class AuthTokenDAO {
      *
      * @throws DatabaseException An exception that occurs when there is trouble accessing the database.
      * */
-    public void deleteToken(String authToken) throws DatabaseException {
+    void deleteToken(String authToken) throws DatabaseException {
         String sql = "DELETE FROM AuthTokens WHERE Token = ?;";
         try (PreparedStatement stmt = myConnection.prepareStatement(sql)) {
             stmt.setString(1, authToken);
@@ -107,7 +106,7 @@ public class AuthTokenDAO {
      *
      * @throws DatabaseException An exception that occurs when there is trouble accessing the database.
      * */
-    public void clearAuthTokensTable() throws DatabaseException {
+    void clearAuthTokensTable() throws DatabaseException {
         try (Statement stmt = myConnection.createStatement()){
             String sql = "DELETE FROM AuthTokens;";
             stmt.executeUpdate(sql);

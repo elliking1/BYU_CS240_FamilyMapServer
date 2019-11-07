@@ -72,10 +72,6 @@ public class PersonResult extends StandardResult {
         return associatedUsername;
     }
 
-    public void setAssociatedUsername(String associatedUsername) {
-        this.associatedUsername = associatedUsername;
-    }
-
     public String getPersonID() {
         return personID;
     }
@@ -108,29 +104,6 @@ public class PersonResult extends StandardResult {
         this.gender = gender;
     }
 
-    public String getFatherID() {
-        return fatherID;
-    }
-
-    public void setFatherID(String fatherID) {
-        this.fatherID = fatherID;
-    }
-
-    public String getMotherID() {
-        return motherID;
-    }
-
-    public void setMotherID(String motherID) {
-        this.motherID = motherID;
-    }
-
-    public String getSpouseID() {
-        return spouseID;
-    }
-
-    public void setSpouseID(String spouseID) {
-        this.spouseID = spouseID;
-    }
 
     @Override
     public boolean equals(Object o) {

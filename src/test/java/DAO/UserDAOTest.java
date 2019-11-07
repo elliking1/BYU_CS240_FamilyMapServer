@@ -10,12 +10,12 @@ import java.sql.Connection;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
-public class UserDAOTest {
+class UserDAOTest {
     private DatabaseConnect db;
     private User myUser;
 
     @BeforeEach
-    public void setUp() throws Exception {
+    void setUp() throws Exception {
         //here we can set up any classes or variables we will need for the rest of our tests
 
         //lets create a new database
@@ -31,7 +31,7 @@ public class UserDAOTest {
     }
 
     @AfterEach
-    public void tearDown() throws Exception {
+    void tearDown() throws Exception {
         //here we can get rid of anything from our tests we don't want to affect the rest of our program
         //lets clear the tables so that any data we entered for testing doesn't linger in our files
         db.openConnection();
@@ -39,7 +39,7 @@ public class UserDAOTest {
         db.closeConnection(true);
     }
     @Test
-    public void addUserPass() throws Exception {
+    void addUserPass() throws Exception {
         //We want to make sure add works
         //First lets create a User that we'll set to null. We'll use this to make sure what we put
         //in the database is actually there.
@@ -69,7 +69,7 @@ public class UserDAOTest {
     }
 
     @Test
-    public void addUserFail() throws Exception {
+    void addUserFail() throws Exception {
         //lets do this test again but this time lets try to make it fail
 
         // NOTE: The correct way to test for an exception in Junit 5 is to use an assertThrows
@@ -116,7 +116,7 @@ public class UserDAOTest {
     }
 
     @Test
-    public void deleteUserPass() throws Exception {
+    void deleteUserPass() throws Exception {
 
         User compareTest = null;
 
@@ -137,7 +137,7 @@ public class UserDAOTest {
     }
 
     @Test
-    public void deleteUserFail() throws Exception {
+    void deleteUserFail() throws Exception {
 
         User compareTest = null;
         try {
@@ -157,7 +157,7 @@ public class UserDAOTest {
     }
 
     @Test
-    public void queryUserPass() throws Exception {
+    void queryUserPass() throws Exception {
 
         User compareTest = null;
 
@@ -181,7 +181,7 @@ public class UserDAOTest {
     }
 
     @Test
-    public void queryUserFail() throws Exception {
+    void queryUserFail() throws Exception {
         User wasFound = null;
         try {
             Connection conn = db.openConnection();
@@ -197,10 +197,10 @@ public class UserDAOTest {
     }
 
     @Test
-    public void clearUsersTablePass() throws Exception {
+    void clearUsersTablePass() throws Exception {
         User compareTest = null;
         User compareTestTwo = null;
-        User UserTwo = null;
+        User UserTwo;
         try {
             Connection conn = db.openConnection();
             conn.setAutoCommit(false);
